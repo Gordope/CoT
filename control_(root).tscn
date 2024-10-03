@@ -1,0 +1,117 @@
+[gd_scene load_steps=2 format=3 uid="uid://dwd8ug3siqd4q"]
+
+[ext_resource type="Script" path="res://control_(root).gd" id="1_gddro"]
+
+[node name="Control (root)" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_gddro")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Label (Remaining points)" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="HBoxContainer (str)" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="Label (str)" type="Label" parent="VBoxContainer/HBoxContainer (str)"]
+layout_mode = 2
+
+[node name="Label (current str)" type="Label" parent="VBoxContainer/HBoxContainer (str)"]
+layout_mode = 2
+
+[node name="HSlider (str)" type="HSlider" parent="VBoxContainer/HBoxContainer (str)"]
+layout_mode = 2
+max_value = 50.0
+
+[node name="HBoxContainer (dex)" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="Label (dex)" type="Label" parent="VBoxContainer/HBoxContainer (dex)"]
+layout_mode = 2
+
+[node name="Label (current dex)" type="Label" parent="VBoxContainer/HBoxContainer (dex)"]
+layout_mode = 2
+
+[node name="HSlider (dex)" type="HSlider" parent="VBoxContainer/HBoxContainer (dex)"]
+layout_mode = 2
+max_value = 50.0
+
+[node name="HBoxContainer (int)" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="Label (int)" type="Label" parent="VBoxContainer/HBoxContainer (int)"]
+layout_mode = 2
+
+[node name="Label (current int)" type="Label" parent="VBoxContainer/HBoxContainer (int)"]
+layout_mode = 2
+
+[node name="HSlider (int)" type="HSlider" parent="VBoxContainer/HBoxContainer (int)"]
+layout_mode = 2
+max_value = 50.0
+
+[node name="HBoxContainer (luck)" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="Label (luck)" type="Label" parent="VBoxContainer/HBoxContainer (luck)"]
+layout_mode = 2
+
+[node name="Label (current luck)" type="Label" parent="VBoxContainer/HBoxContainer (luck)"]
+layout_mode = 2
+
+[node name="HSlider (luck)" type="HSlider" parent="VBoxContainer/HBoxContainer (luck)"]
+layout_mode = 2
+max_value = 50.0
+
+[node name="HBoxContainer (char)" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="Label (char)" type="Label" parent="VBoxContainer/HBoxContainer (char)"]
+layout_mode = 2
+
+[node name="Label (current char)" type="Label" parent="VBoxContainer/HBoxContainer (char)"]
+layout_mode = 2
+
+[node name="HSlider (char)" type="HSlider" parent="VBoxContainer/HBoxContainer (char)"]
+layout_mode = 2
+max_value = 50.0
+
+[node name="HBoxContainer (wis)" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="Label (wis)" type="Label" parent="VBoxContainer/HBoxContainer (wis)"]
+layout_mode = 2
+
+[node name="Label (current wis)" type="Label" parent="VBoxContainer/HBoxContainer (wis)"]
+layout_mode = 2
+
+[node name="HSlider (wis)" type="HSlider" parent="VBoxContainer/HBoxContainer (wis)"]
+layout_mode = 2
+max_value = 50.0
+
+[node name="HBoxContainer (per)" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="Label (per)" type="Label" parent="VBoxContainer/HBoxContainer (per)"]
+layout_mode = 2
+
+[node name="Label (current per)" type="Label" parent="VBoxContainer/HBoxContainer (per)"]
+layout_mode = 2
+
+[node name="HSlider (per)" type="HSlider" parent="VBoxContainer/HBoxContainer (per)"]
+layout_mode = 2
+max_value = 50.0
+
+[node name="Label (All points used)" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+
+[connection signal="value_changed" from="VBoxContainer/HBoxContainer (str)/HSlider (str)" to="." method="_on_h_slider_str_value_changed"]
+[connection signal="value_changed" from="VBoxContainer/HBoxContainer (dex)/HSlider (dex)" to="." method="_on_h_slider_dex_value_changed"]
