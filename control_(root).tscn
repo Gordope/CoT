@@ -59,12 +59,14 @@ text = "Intelligence"
 [node name="HBoxContainer (int)" type="HBoxContainer" parent="VBoxContainer"]
 layout_mode = 2
 
-[node name="Value int" type="Label" parent="VBoxContainer/HBoxContainer (int)"]
+[node name="Value int" type="SpinBox" parent="VBoxContainer/HBoxContainer (int)"]
 layout_mode = 2
+max_value = 30.0
 
 [node name="HSlider int" type="HSlider" parent="VBoxContainer/HBoxContainer (int)"]
+custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
-max_value = 50.0
+max_value = 30.0
 
 [node name="Label luck" type="Label" parent="VBoxContainer"]
 layout_mode = 2
@@ -126,4 +128,6 @@ max_value = 50.0
 [connection signal="value_changed" from="VBoxContainer/HBoxContainer (str)/HSlider str" to="." method="_on_h_slider_str_value_changed"]
 [connection signal="value_changed" from="VBoxContainer/HBoxContainer (dex)/Value dex" to="." method="_on_value_dex_value_changed"]
 [connection signal="value_changed" from="VBoxContainer/HBoxContainer (dex)/HSlider dex" to="." method="_on_h_slider_dex_value_changed"]
+[connection signal="value_changed" from="VBoxContainer/HBoxContainer (int)/Value int" to="." method="_on_value_int_value_changed"]
+[connection signal="value_changed" from="VBoxContainer/HBoxContainer (int)/HSlider int" to="." method="_on_h_slider_int_value_changed"]
 [connection signal="value_changed" from="VBoxContainer/HBoxContainer (wis)/HSlider wis" to="." method="_on_h_slider_wis_value_changed"]
