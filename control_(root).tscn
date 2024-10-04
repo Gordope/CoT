@@ -29,28 +29,32 @@ layout_mode = 2
 
 [node name="Value str" type="SpinBox" parent="VBoxContainer/HBoxContainer (str)"]
 layout_mode = 2
-max_value = 50.0
+max_value = 30.0
 
 [node name="HSlider str" type="HSlider" parent="VBoxContainer/HBoxContainer (str)"]
 custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
-max_value = 50.0
+max_value = 30.0
 
 [node name="Label dex" type="Label" parent="VBoxContainer"]
 layout_mode = 2
+text = "Dexterity"
 
 [node name="HBoxContainer (dex)" type="HBoxContainer" parent="VBoxContainer"]
 layout_mode = 2
 
-[node name="Value dex" type="Label" parent="VBoxContainer/HBoxContainer (dex)"]
+[node name="Value dex" type="SpinBox" parent="VBoxContainer/HBoxContainer (dex)"]
 layout_mode = 2
+max_value = 30.0
 
 [node name="HSlider dex" type="HSlider" parent="VBoxContainer/HBoxContainer (dex)"]
+custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
-max_value = 50.0
+max_value = 30.0
 
 [node name="Label int" type="Label" parent="VBoxContainer"]
 layout_mode = 2
+text = "Intelligence"
 
 [node name="HBoxContainer (int)" type="HBoxContainer" parent="VBoxContainer"]
 layout_mode = 2
@@ -64,6 +68,7 @@ max_value = 50.0
 
 [node name="Label luck" type="Label" parent="VBoxContainer"]
 layout_mode = 2
+text = "Luck"
 
 [node name="HBoxContainer (luck)" type="HBoxContainer" parent="VBoxContainer"]
 layout_mode = 2
@@ -77,6 +82,7 @@ max_value = 50.0
 
 [node name="Label char" type="Label" parent="VBoxContainer"]
 layout_mode = 2
+text = "Charisma"
 
 [node name="HBoxContainer (char)" type="HBoxContainer" parent="VBoxContainer"]
 layout_mode = 2
@@ -90,6 +96,7 @@ max_value = 50.0
 
 [node name="Label wis" type="Label" parent="VBoxContainer"]
 layout_mode = 2
+text = "Wisdom"
 
 [node name="HBoxContainer (wis)" type="HBoxContainer" parent="VBoxContainer"]
 layout_mode = 2
@@ -103,6 +110,7 @@ max_value = 50.0
 
 [node name="Label per" type="Label" parent="VBoxContainer"]
 layout_mode = 2
+text = "Perception"
 
 [node name="HBoxContainer (per)" type="HBoxContainer" parent="VBoxContainer"]
 layout_mode = 2
@@ -116,5 +124,6 @@ max_value = 50.0
 
 [connection signal="value_changed" from="VBoxContainer/HBoxContainer (str)/Value str" to="." method="_on_value_str_value_changed"]
 [connection signal="value_changed" from="VBoxContainer/HBoxContainer (str)/HSlider str" to="." method="_on_h_slider_str_value_changed"]
+[connection signal="value_changed" from="VBoxContainer/HBoxContainer (dex)/Value dex" to="." method="_on_value_dex_value_changed"]
 [connection signal="value_changed" from="VBoxContainer/HBoxContainer (dex)/HSlider dex" to="." method="_on_h_slider_dex_value_changed"]
 [connection signal="value_changed" from="VBoxContainer/HBoxContainer (wis)/HSlider wis" to="." method="_on_h_slider_wis_value_changed"]
