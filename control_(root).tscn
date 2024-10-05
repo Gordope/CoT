@@ -1,6 +1,8 @@
-[gd_scene load_steps=2 format=3 uid="uid://dwd8ug3siqd4q"]
+[gd_scene load_steps=3 format=3 uid="uid://dwd8ug3siqd4q"]
 
 [ext_resource type="Script" path="res://control_(root).gd" id="1_gddro"]
+
+[sub_resource type="Theme" id="Theme_dnibs"]
 
 [node name="Control (root)" type="Control"]
 layout_mode = 3
@@ -22,6 +24,7 @@ layout_mode = 2
 
 [node name="Remaining points" type="Label" parent="VBoxContainer/HBoxContainer"]
 layout_mode = 2
+theme = SubResource("Theme_dnibs")
 text = "Remaining points"
 
 [node name="Value points" type="Label" parent="VBoxContainer/HBoxContainer"]

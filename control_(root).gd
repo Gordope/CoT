@@ -24,91 +24,163 @@ var con = 0
 @onready var wis_slider = get_node("VBoxContainer/HBoxContainer (wis)/HSlider wis")
 @onready var con_spinbox = get_node("VBoxContainer/HBoxContainer (con)/Value con")
 @onready var con_slider = get_node("VBoxContainer/HBoxContainer (con)/HSlider con")
+@onready var children_vbox = get_node("VBoxContainer").get_children()
 
 func _ready() -> void:	
 	remaining_points.text = str(100)
+	
 
 
 func _on_h_slider_str_value_changed(value: float) -> void:
 	maxPoints += str - value
 	remaining_points.text = str(maxPoints)
+	if (maxPoints < 0):
+		red_ui()
+	else:
+		white_ui()
 	str = value
 	str_spinbox.value = value
 
 func _on_value_str_value_changed(value: float) -> void:
 	maxPoints += str - value
 	remaining_points.text = str(maxPoints)
+	if (maxPoints < 0):
+		red_ui()
+	else:
+		white_ui()
 	str = value
 	str_slider.value = int(value)
 	
 func _on_h_slider_dex_value_changed(value: float) -> void:
 	maxPoints += dex - value
 	remaining_points.text = str(maxPoints)
+	if (maxPoints < 0):
+		red_ui()
+	else:
+		white_ui()
 	dex = value
 	dex_spinbox.value = value
 
 func _on_value_dex_value_changed(value: float) -> void:
 	maxPoints += dex - value
 	remaining_points.text = str(maxPoints)
+	if (maxPoints < 0):
+		red_ui()
+	else:
+		white_ui()
 	dex = value
 	dex_slider.value = int(value)
 	
 func _on_h_slider_int_value_changed(value: float) -> void:
 	maxPoints += intel - value
 	remaining_points.text = str(maxPoints)
+	if (maxPoints < 0):
+		red_ui()
+	else:
+		white_ui()
 	intel = value
 	int_spinbox.value = value
 
 func _on_value_int_value_changed(value: float) -> void:
 	maxPoints += intel - value
 	remaining_points.text = str(maxPoints)
+	if (maxPoints < 0):
+		red_ui()
+	else:
+		white_ui()
 	intel = value
 	int_slider.value = int(value)
 	
 func _on_h_slider_luck_value_changed(value: float) -> void:
 	maxPoints += luck - value
 	remaining_points.text = str(maxPoints)
+	if (maxPoints < 0):
+		red_ui()
+	else:
+		white_ui()
 	luck = value
 	luck_spinbox.value = value
 
 func _on_value_luck_value_changed(value: float) -> void:
 	maxPoints += luck - value
 	remaining_points.text = str(maxPoints)
+	if (maxPoints < 0):
+		red_ui()
+	else:
+		white_ui()
 	luck = value
 	luck_slider.value = int(value)
 
 func _on_h_slider_char_value_changed(value: float) -> void:
 	maxPoints += char - value
 	remaining_points.text = str(maxPoints)
+	if (maxPoints < 0):
+		red_ui()
+	else:
+		white_ui()
 	char = value
 	char_spinbox.value = value
 
 func _on_value_char_value_changed(value: float) -> void:
 	maxPoints += char - value
 	remaining_points.text = str(maxPoints)
+	if (maxPoints < 0):
+		red_ui()
+	else:
+		white_ui()
 	char = value
 	char_slider.value = int(value)
 
 func _on_h_slider_wis_value_changed(value: float) -> void:
 	maxPoints += wis - value
 	remaining_points.text = str(maxPoints)
+	if (maxPoints < 0):
+		red_ui()
+	else:
+		white_ui()
 	wis = value
 	wis_spinbox.value = value
 
 func _on_value_wis_value_changed(value: float) -> void:
 	maxPoints += wis - value
 	remaining_points.text = str(maxPoints)
+	if (maxPoints < 0):
+		red_ui()
+	else:
+		white_ui()
 	wis = value
 	wis_slider.value = int(value)
 	
 func _on_h_slider_con_value_changed(value: float) -> void:
 	maxPoints += con - value
 	remaining_points.text = str(maxPoints)
+	if (maxPoints < 0):
+		red_ui()
+	else:
+		white_ui()
 	con = value
 	con_spinbox.value = value
 
 func _on_value_con_value_changed(value: float) -> void:
 	maxPoints += con - value
 	remaining_points.text = str(maxPoints)
+	if (maxPoints < 0):
+		red_ui()
+	else:
+		white_ui()
 	con = value
 	con_slider.value = int(value)
+
+func red_ui():
+	get_node("VBoxContainer/HBoxContainer/Remaining points").add_theme_color_override("font_color", Color.RED)
+	get_node("VBoxContainer/HBoxContainer/Value points").add_theme_color_override("font_color", Color.RED)
+	for child in children_vbox:
+		if child is Label:
+			child.add_theme_color_override("font_color", Color.RED)
+
+func white_ui():
+	get_node("VBoxContainer/HBoxContainer/Remaining points").add_theme_color_override("font_color", Color.WHITE)
+	get_node("VBoxContainer/HBoxContainer/Value points").add_theme_color_override("font_color", Color.WHITE)
+	for child in children_vbox:
+		if child is Label:
+			child.add_theme_color_override("font_color", Color.WHITE)
