@@ -17,7 +17,14 @@ layout_mode = 0
 offset_right = 755.0
 offset_bottom = 401.0
 
-[node name="Label (Remaining points)" type="Label" parent="VBoxContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="Remaining points" type="Label" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "Remaining points"
+
+[node name="Value points" type="Label" parent="VBoxContainer/HBoxContainer"]
 layout_mode = 2
 
 [node name="Label str" type="Label" parent="VBoxContainer"]
@@ -75,12 +82,14 @@ text = "Luck"
 [node name="HBoxContainer (luck)" type="HBoxContainer" parent="VBoxContainer"]
 layout_mode = 2
 
-[node name="Value luck" type="Label" parent="VBoxContainer/HBoxContainer (luck)"]
+[node name="Value luck" type="SpinBox" parent="VBoxContainer/HBoxContainer (luck)"]
 layout_mode = 2
+max_value = 30.0
 
 [node name="HSlider luck" type="HSlider" parent="VBoxContainer/HBoxContainer (luck)"]
+custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
-max_value = 50.0
+max_value = 30.0
 
 [node name="Label char" type="Label" parent="VBoxContainer"]
 layout_mode = 2
@@ -89,12 +98,14 @@ text = "Charisma"
 [node name="HBoxContainer (char)" type="HBoxContainer" parent="VBoxContainer"]
 layout_mode = 2
 
-[node name="Value char" type="Label" parent="VBoxContainer/HBoxContainer (char)"]
+[node name="Value char" type="SpinBox" parent="VBoxContainer/HBoxContainer (char)"]
 layout_mode = 2
+max_value = 30.0
 
 [node name="HSlider char" type="HSlider" parent="VBoxContainer/HBoxContainer (char)"]
+custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
-max_value = 50.0
+max_value = 30.0
 
 [node name="Label wis" type="Label" parent="VBoxContainer"]
 layout_mode = 2
@@ -103,26 +114,31 @@ text = "Wisdom"
 [node name="HBoxContainer (wis)" type="HBoxContainer" parent="VBoxContainer"]
 layout_mode = 2
 
-[node name="Value wis" type="Label" parent="VBoxContainer/HBoxContainer (wis)"]
+[node name="Value wis" type="SpinBox" parent="VBoxContainer/HBoxContainer (wis)"]
 layout_mode = 2
+max_value = 30.0
 
 [node name="HSlider wis" type="HSlider" parent="VBoxContainer/HBoxContainer (wis)"]
+custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
-max_value = 50.0
+max_value = 30.0
 
-[node name="Label per" type="Label" parent="VBoxContainer"]
+[node name="Label con" type="Label" parent="VBoxContainer"]
 layout_mode = 2
-text = "Perception"
+text = "Constitution
+"
 
-[node name="HBoxContainer (per)" type="HBoxContainer" parent="VBoxContainer"]
-layout_mode = 2
-
-[node name="Value per" type="Label" parent="VBoxContainer/HBoxContainer (per)"]
+[node name="HBoxContainer (con)" type="HBoxContainer" parent="VBoxContainer"]
 layout_mode = 2
 
-[node name="HSlider per" type="HSlider" parent="VBoxContainer/HBoxContainer (per)"]
+[node name="Value con" type="SpinBox" parent="VBoxContainer/HBoxContainer (con)"]
 layout_mode = 2
-max_value = 50.0
+max_value = 30.0
+
+[node name="HSlider con" type="HSlider" parent="VBoxContainer/HBoxContainer (con)"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+max_value = 30.0
 
 [connection signal="value_changed" from="VBoxContainer/HBoxContainer (str)/Value str" to="." method="_on_value_str_value_changed"]
 [connection signal="value_changed" from="VBoxContainer/HBoxContainer (str)/HSlider str" to="." method="_on_h_slider_str_value_changed"]
@@ -130,4 +146,11 @@ max_value = 50.0
 [connection signal="value_changed" from="VBoxContainer/HBoxContainer (dex)/HSlider dex" to="." method="_on_h_slider_dex_value_changed"]
 [connection signal="value_changed" from="VBoxContainer/HBoxContainer (int)/Value int" to="." method="_on_value_int_value_changed"]
 [connection signal="value_changed" from="VBoxContainer/HBoxContainer (int)/HSlider int" to="." method="_on_h_slider_int_value_changed"]
+[connection signal="value_changed" from="VBoxContainer/HBoxContainer (luck)/Value luck" to="." method="_on_value_luck_value_changed"]
+[connection signal="value_changed" from="VBoxContainer/HBoxContainer (luck)/HSlider luck" to="." method="_on_h_slider_luck_value_changed"]
+[connection signal="value_changed" from="VBoxContainer/HBoxContainer (char)/Value char" to="." method="_on_value_char_value_changed"]
+[connection signal="value_changed" from="VBoxContainer/HBoxContainer (char)/HSlider char" to="." method="_on_h_slider_char_value_changed"]
+[connection signal="value_changed" from="VBoxContainer/HBoxContainer (wis)/Value wis" to="." method="_on_value_wis_value_changed"]
 [connection signal="value_changed" from="VBoxContainer/HBoxContainer (wis)/HSlider wis" to="." method="_on_h_slider_wis_value_changed"]
+[connection signal="value_changed" from="VBoxContainer/HBoxContainer (con)/Value con" to="." method="_on_value_con_value_changed"]
+[connection signal="value_changed" from="VBoxContainer/HBoxContainer (con)/HSlider con" to="." method="_on_h_slider_con_value_changed"]
