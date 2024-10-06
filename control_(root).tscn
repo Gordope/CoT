@@ -1,8 +1,8 @@
 [gd_scene load_steps=10 format=3 uid="uid://dwd8ug3siqd4q"]
 
-[ext_resource type="Script" path="res://control_(root).gd" id="1_gddro"]
 [ext_resource type="FontFile" uid="uid://qoioaxtb7nx3" path="res://IBMPlexMono-Regular.ttf" id="2_ctj0n"]
 [ext_resource type="Script" path="res://input.gd" id="2_l4urd"]
+[ext_resource type="Script" path="res://v_box_container.gd" id="3_ryk62"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cth3c"]
 bg_color = Color(0.0768358, 0.0768358, 0.0768358, 1)
@@ -27,7 +27,6 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(1.0042, 1)
-script = ExtResource("1_gddro")
 
 [node name="Background" type="PanelContainer" parent="."]
 layout_mode = 1
@@ -79,12 +78,12 @@ max_length = 48
 script = ExtResource("2_l4urd")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
-visible = false
 layout_mode = 2
 offset_left = 20.0
 offset_top = 20.0
 offset_right = 1132.0
-offset_bottom = 628.0
+offset_bottom = 548.0
+script = ExtResource("3_ryk62")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
 layout_mode = 2
@@ -211,16 +210,31 @@ layout_mode = 2
 max_value = 30.0
 
 [connection signal="value_changed" from="VBoxContainer/HBoxContainer (str)/Value str" to="." method="_on_value_str_value_changed"]
+[connection signal="value_changed" from="VBoxContainer/HBoxContainer (str)/Value str" to="VBoxContainer" method="_on_value_str_value_changed"]
 [connection signal="value_changed" from="VBoxContainer/HBoxContainer (str)/HSlider str" to="." method="_on_h_slider_str_value_changed"]
+[connection signal="value_changed" from="VBoxContainer/HBoxContainer (str)/HSlider str" to="VBoxContainer" method="_on_h_slider_str_value_changed"]
 [connection signal="value_changed" from="VBoxContainer/HBoxContainer (dex)/Value dex" to="." method="_on_value_dex_value_changed"]
+[connection signal="value_changed" from="VBoxContainer/HBoxContainer (dex)/Value dex" to="VBoxContainer" method="_on_value_dex_value_changed"]
 [connection signal="value_changed" from="VBoxContainer/HBoxContainer (dex)/HSlider dex" to="." method="_on_h_slider_dex_value_changed"]
+[connection signal="value_changed" from="VBoxContainer/HBoxContainer (dex)/HSlider dex" to="VBoxContainer" method="_on_h_slider_dex_value_changed"]
 [connection signal="value_changed" from="VBoxContainer/HBoxContainer (int)/Value int" to="." method="_on_value_int_value_changed"]
+[connection signal="value_changed" from="VBoxContainer/HBoxContainer (int)/Value int" to="VBoxContainer" method="_on_value_int_value_changed"]
 [connection signal="value_changed" from="VBoxContainer/HBoxContainer (int)/HSlider int" to="." method="_on_h_slider_int_value_changed"]
+[connection signal="value_changed" from="VBoxContainer/HBoxContainer (int)/HSlider int" to="VBoxContainer" method="_on_h_slider_int_value_changed"]
 [connection signal="value_changed" from="VBoxContainer/HBoxContainer (luck)/Value luck" to="." method="_on_value_luck_value_changed"]
+[connection signal="value_changed" from="VBoxContainer/HBoxContainer (luck)/Value luck" to="VBoxContainer" method="_on_value_luck_value_changed"]
 [connection signal="value_changed" from="VBoxContainer/HBoxContainer (luck)/HSlider luck" to="." method="_on_h_slider_luck_value_changed"]
+[connection signal="value_changed" from="VBoxContainer/HBoxContainer (luck)/HSlider luck" to="VBoxContainer" method="_on_h_slider_luck_value_changed"]
 [connection signal="value_changed" from="VBoxContainer/HBoxContainer (char)/Value char" to="." method="_on_value_char_value_changed"]
+[connection signal="value_changed" from="VBoxContainer/HBoxContainer (char)/Value char" to="VBoxContainer" method="_on_value_char_value_changed"]
 [connection signal="value_changed" from="VBoxContainer/HBoxContainer (char)/HSlider char" to="." method="_on_h_slider_char_value_changed"]
+[connection signal="value_changed" from="VBoxContainer/HBoxContainer (char)/HSlider char" to="Background/MarginContainer/Rows/InputArea/HBoxContainer/Input" method="_on_h_slider_char_value_changed"]
+[connection signal="value_changed" from="VBoxContainer/HBoxContainer (char)/HSlider char" to="VBoxContainer" method="_on_h_slider_char_value_changed"]
 [connection signal="value_changed" from="VBoxContainer/HBoxContainer (wis)/Value wis" to="." method="_on_value_wis_value_changed"]
+[connection signal="value_changed" from="VBoxContainer/HBoxContainer (wis)/Value wis" to="VBoxContainer" method="_on_value_wis_value_changed"]
 [connection signal="value_changed" from="VBoxContainer/HBoxContainer (wis)/HSlider wis" to="." method="_on_h_slider_wis_value_changed"]
+[connection signal="value_changed" from="VBoxContainer/HBoxContainer (wis)/HSlider wis" to="VBoxContainer" method="_on_h_slider_wis_value_changed"]
 [connection signal="value_changed" from="VBoxContainer/HBoxContainer (con)/Value con" to="." method="_on_value_con_value_changed"]
+[connection signal="value_changed" from="VBoxContainer/HBoxContainer (con)/Value con" to="VBoxContainer" method="_on_value_con_value_changed"]
 [connection signal="value_changed" from="VBoxContainer/HBoxContainer (con)/HSlider con" to="." method="_on_h_slider_con_value_changed"]
+[connection signal="value_changed" from="VBoxContainer/HBoxContainer (con)/HSlider con" to="VBoxContainer" method="_on_h_slider_con_value_changed"]
