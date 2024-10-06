@@ -1,8 +1,10 @@
-[gd_scene load_steps=2 format=3 uid="uid://dp5djq0rd2158"]
+[gd_scene load_steps=3 format=3 uid="uid://dp5djq0rd2158"]
 
+[ext_resource type="Script" path="res://input_response.gd" id="1_5xurg"]
 [ext_resource type="FontFile" uid="uid://qoioaxtb7nx3" path="res://IBMPlexMono-Regular.ttf" id="1_lo1gw"]
 
 [node name="InputResponse" type="VBoxContainer"]
+script = ExtResource("1_5xurg")
 
 [node name="InputHistory" type="Label" parent="."]
 layout_mode = 2
