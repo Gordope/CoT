@@ -1,0 +1,32 @@
+[gd_scene load_steps=3 format=3 uid="uid://cnf20ymmo60s6"]
+
+[ext_resource type="Script" path="res://room.gd" id="1_1y81g"]
+[ext_resource type="FontFile" uid="uid://qoioaxtb7nx3" path="res://IBMPlexMono-Regular.ttf" id="1_luou1"]
+
+[node name="Room" type="PanelContainer"]
+offset_left = 161.0
+offset_top = -398.0
+offset_right = 425.0
+offset_bottom = -298.0
+script = ExtResource("1_1y81g")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 2
+
+[node name="Rows" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="RoomName" type="Label" parent="MarginContainer/Rows"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_luou1")
+theme_override_font_sizes/font_size = 24
+text = "Room Name"
+horizontal_alignment = 1
+
+[node name="RoomDescription" type="Label" parent="MarginContainer/Rows"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_luou1")
+theme_override_font_sizes/font_size = 16
+text = "This is the discription of the room.
+"
+autowrap_mode = 2

@@ -1,8 +1,10 @@
-[gd_scene load_steps=11 format=3 uid="uid://dwd8ug3siqd4q"]
+[gd_scene load_steps=13 format=3 uid="uid://dwd8ug3siqd4q"]
 
 [ext_resource type="Script" path="res://control_(root).gd" id="1_gddro"]
 [ext_resource type="FontFile" uid="uid://qoioaxtb7nx3" path="res://IBMPlexMono-Regular.ttf" id="2_ctj0n"]
+[ext_resource type="Script" path="res://command_processor.gd" id="2_d0woi"]
 [ext_resource type="Script" path="res://input.gd" id="2_l4urd"]
+[ext_resource type="PackedScene" uid="uid://cnf20ymmo60s6" path="res://room.tscn" id="3_2tqjk"]
 [ext_resource type="Script" path="res://v_box_container.gd" id="3_ryk62"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cth3c"]
@@ -29,6 +31,15 @@ grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(1.0042, 1)
 script = ExtResource("1_gddro")
+
+[node name="CommandProcessor" type="Node" parent="."]
+script = ExtResource("2_d0woi")
+
+[node name="RoomManager" type="Node" parent="."]
+
+[node name="HouseRoom" parent="RoomManager" instance=ExtResource("3_2tqjk")]
+room_name = "House"
+room_description = "A random house"
 
 [node name="Background" type="PanelContainer" parent="."]
 layout_mode = 1
@@ -61,6 +72,8 @@ horizontal_scroll_mode = 0
 
 [node name="HistoryRows" type="VBoxContainer" parent="Background/MarginContainer/Rows/GameInfo/Scroll"]
 layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
 theme_override_constants/separation = 20
 
 [node name="InputArea" type="PanelContainer" parent="Background/MarginContainer/Rows"]

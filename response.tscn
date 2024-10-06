@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://ci6okorqjixdq"]
+
+[ext_resource type="FontFile" uid="uid://qoioaxtb7nx3" path="res://IBMPlexMono-Regular.ttf" id="1_si8db"]
+
+[node name="Response" type="Label"]
+theme_override_fonts/font = ExtResource("1_si8db")
+theme_override_font_sizes/font_size = 28
+text = "This is what the game will give back"
+autowrap_mode = 2

@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://dp5djq0rd2158"]
+[gd_scene load_steps=4 format=3 uid="uid://dp5djq0rd2158"]
 
 [ext_resource type="Script" path="res://input_response.gd" id="1_5xurg"]
 [ext_resource type="FontFile" uid="uid://qoioaxtb7nx3" path="res://IBMPlexMono-Regular.ttf" id="1_lo1gw"]
+[ext_resource type="PackedScene" uid="uid://ci6okorqjixdq" path="res://response.tscn" id="3_e75gj"]
 
 [node name="InputResponse" type="VBoxContainer"]
 script = ExtResource("1_5xurg")
@@ -13,8 +14,5 @@ theme_override_fonts/font = ExtResource("1_lo1gw")
 theme_override_font_sizes/font_size = 24
 text = " > This is what the user typed"
 
-[node name="Response" type="Label" parent="."]
+[node name="Response" parent="." instance=ExtResource("3_e75gj")]
 layout_mode = 2
-theme_override_fonts/font = ExtResource("1_lo1gw")
-theme_override_font_sizes/font_size = 28
-text = "This is what the game will give back"
