@@ -1,6 +1,7 @@
-[gd_scene load_steps=8 format=3 uid="uid://dwd8ug3siqd4q"]
+[gd_scene load_steps=10 format=3 uid="uid://dwd8ug3siqd4q"]
 
 [ext_resource type="Script" path="res://control_(root).gd" id="1_gddro"]
+[ext_resource type="FontFile" uid="uid://qoioaxtb7nx3" path="res://IBMPlexMono-Regular.ttf" id="2_ctj0n"]
 [ext_resource type="Script" path="res://input.gd" id="2_l4urd"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cth3c"]
@@ -11,6 +12,8 @@ bg_color = Color(0.223103, 0.223103, 0.223103, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jk5tq"]
 bg_color = Color(0.31802, 0.31802, 0.31802, 1)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_am3mq"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_36lko"]
 
@@ -56,9 +59,23 @@ custom_minimum_size = Vector2(0, 60)
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_jk5tq")
 
-[node name="Input" type="LineEdit" parent="Background/MarginContainer/Rows/InputArea"]
+[node name="HBoxContainer" type="HBoxContainer" parent="Background/MarginContainer/Rows/InputArea"]
 layout_mode = 2
+
+[node name="Caret" type="Label" parent="Background/MarginContainer/Rows/InputArea/HBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_ctj0n")
+theme_override_font_sizes/font_size = 28
+text = " > "
+
+[node name="Input" type="LineEdit" parent="Background/MarginContainer/Rows/InputArea/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("2_ctj0n")
+theme_override_font_sizes/font_size = 28
+theme_override_styles/focus = SubResource("StyleBoxEmpty_am3mq")
 theme_override_styles/normal = SubResource("StyleBoxEmpty_36lko")
+max_length = 48
 script = ExtResource("2_l4urd")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
