@@ -13,6 +13,8 @@ const InputResponse = preload("res://input_response.tscn")
 
 func _ready() -> void:
 	scrollbar.changed.connect(handle_scrollbar_changed)
+	
+	handle_response_generated("Welcome to havenlight! Type 'help' for available commands")
 	command_processor.response_generated.connect(handle_response_generated)
 	command_processor.initialize(room_manager.get_child(0))
 
@@ -30,7 +32,7 @@ func _on_input_text_submitted(new_text: String) -> void:
 	add_response_to_game(input_response)
 	
 
-func handle_response_generated(response_text):
+func handle_response_generated(response_text: String):
 	var response = Response.instantiate()
 	response.text = response_text
 	add_response_to_game(response)

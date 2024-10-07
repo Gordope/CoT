@@ -38,8 +38,8 @@ script = ExtResource("2_d0woi")
 [node name="RoomManager" type="Node" parent="."]
 
 [node name="HouseRoom" parent="RoomManager" instance=ExtResource("3_2tqjk")]
-room_name = "House"
-room_description = "A random house"
+room_name = "a house"
+room_description = "a random house"
 
 [node name="Background" type="PanelContainer" parent="."]
 layout_mode = 1

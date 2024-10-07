@@ -5,7 +5,7 @@ signal response_generated(response_text)
 var current_room = null
 
 func initialize(starting_room):
-	current_room = starting_room
+	change_room(starting_room)
 
 
 func process_command(input: String) -> String:
@@ -36,7 +36,10 @@ func help() -> String:
 
 func change_room(new_room: GameArea):
 	current_room = new_room
-	emit_signal("response_generated", "You go to" + new_room.room_name)
-	emit_signal("response_generated", new_room.room_description)
+	var strings = "\n".join(PackedStringArray([
+	  "You are now in: " + new_room.room_name + ". It is " + new_room.room_description,
+	  "Exits: "
+	]))
+	emit_signal("response_generated", strings)
 	
 	
