@@ -1,6 +1,5 @@
 extends Node
 
-signal response_generated(response_text)
 
 var current_room = null
 
@@ -27,19 +26,24 @@ func process_command(input: String) -> String:
 func go(second_word: String) -> String:
 	if second_word == " ":
 		return "Go where?"
-		
-	return "You go %s" % second_word
+	
+	if current_room.exits.keys().has(second_word):
+		var change_response = change_room(current_room.exits[second_word])
+		return "\n".join(PackedStringArray(["You go %s." % second_word, change_response]))	
+	else:
+		return "This room has no exit in that direction."
 	
 func help() -> String:
 	return "You can use these commands: go [location], help"
 
 
-func change_room(new_room: GameArea):
+func change_room(new_room: GameArea) -> String:
 	current_room = new_room
+	var exit_string = PackedStringArray(new_room.exits.keys())
 	var strings = "\n".join(PackedStringArray([
 	  "You are now in: " + new_room.room_name + ". It is " + new_room.room_description,
-	  "Exits: "
+	  "Exits: " + " ".join(exit_string)
 	]))
-	emit_signal("response_generated", strings)
+	return strings
 	
 	
