@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://cnf20ymmo60s6"]
 
-[ext_resource type="Script" path="res://room.gd" id="1_1y81g"]
-[ext_resource type="FontFile" uid="uid://qoioaxtb7nx3" path="res://IBMPlexMono-Regular.ttf" id="1_luou1"]
+[ext_resource type="Script" path="res://rooms/room.gd" id="1_1y81g"]
+[ext_resource type="FontFile" uid="uid://qoioaxtb7nx3" path="res://fonts/IBMPlexMono-Regular.ttf" id="1_luou1"]
 
 [node name="Room" type="PanelContainer"]
 offset_left = 161.0

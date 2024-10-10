@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://dp5djq0rd2158"]
 
 [ext_resource type="Script" path="res://input_response.gd" id="1_5xurg"]
-[ext_resource type="FontFile" uid="uid://qoioaxtb7nx3" path="res://IBMPlexMono-Regular.ttf" id="1_lo1gw"]
+[ext_resource type="FontFile" uid="uid://qoioaxtb7nx3" path="res://fonts/IBMPlexMono-Regular.ttf" id="1_lo1gw"]
 [ext_resource type="PackedScene" uid="uid://ci6okorqjixdq" path="res://response.tscn" id="3_e75gj"]
 
 [node name="InputResponse" type="VBoxContainer"]

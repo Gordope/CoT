@@ -3,12 +3,12 @@
 importer="font_data_dynamic"
 type="FontFile"
 uid="uid://qoioaxtb7nx3"
-path="res://.godot/imported/IBMPlexMono-Regular.ttf-8245a5e363e0d9865175e0cd4684a09d.fontdata"
+path="res://.godot/imported/IBMPlexMono-Regular.ttf-1129b3b5d268cdf378f2eb550b01f292.fontdata"
 
 [deps]
 
-source_file="res://IBMPlexMono-Regular.ttf"
-dest_files=["res://.godot/imported/IBMPlexMono-Regular.ttf-8245a5e363e0d9865175e0cd4684a09d.fontdata"]
+source_file="res://fonts/IBMPlexMono-Regular.ttf"
+dest_files=["res://.godot/imported/IBMPlexMono-Regular.ttf-1129b3b5d268cdf378f2eb550b01f292.fontdata"]
 
 [params]
 

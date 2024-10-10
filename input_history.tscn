@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://bmt87avkr4ml4"]
 
-[ext_resource type="FontFile" uid="uid://qoioaxtb7nx3" path="res://IBMPlexMono-Regular.ttf" id="1_ds0j4"]
+[ext_resource type="FontFile" uid="uid://qoioaxtb7nx3" path="res://fonts/IBMPlexMono-Regular.ttf" id="1_ds0j4"]
 
 [node name="InputHistory" type="Label"]
 theme_override_colors/font_color = Color(0.544974, 0.544974, 0.544974, 1)
