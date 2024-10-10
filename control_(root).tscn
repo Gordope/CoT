@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://control_(root).gd" id="1_gddro"]
 [ext_resource type="FontFile" uid="uid://qoioaxtb7nx3" path="res://fonts/IBMPlexMono-Regular.ttf" id="2_ctj0n"]
 [ext_resource type="Script" path="res://command_processor.gd" id="2_d0woi"]
-[ext_resource type="Script" path="res://input.gd" id="2_l4urd"]
+[ext_resource type="Script" path="res://input/input.gd" id="2_l4urd"]
 [ext_resource type="PackedScene" uid="uid://cnf20ymmo60s6" path="res://rooms/room.tscn" id="3_2tqjk"]
 [ext_resource type="Script" path="res://rooms/room_manager.gd" id="3_8w3b6"]
 [ext_resource type="Script" path="res://v_box_container.gd" id="3_ryk62"]

@@ -1,7 +1,7 @@
 extends Control
 
-const Response = preload("res://response.tscn")
-const InputResponse = preload("res://input_response.tscn")
+const Response = preload("res://input/response.tscn")
+const InputResponse = preload("res://input/input_response.tscn")
 
 @export var max_lines_remembered := 30
 
