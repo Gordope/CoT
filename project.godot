@@ -14,3 +14,7 @@ config/name="CindersOfTomorrow"
 run/main_scene="res://control_(root).tscn"
 config/features=PackedStringArray("4.3", "Forward Plus")
 config/icon="res://icon.svg"
+
+[autoload]
+
+Types="*res://globals/Types.gd"
