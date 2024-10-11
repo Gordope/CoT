@@ -15,6 +15,10 @@ func _ready() -> void:
 	
 	$ShedRoom.add_npc(guard)
 	$HouseRoom.add_npc(innkeeper)
+	
+	var sword = load_item("GuardSword")
+	sword.use_value = exit
+	$OutsideRoom.add_item(sword)
 
 
 func load_item(item_name: String):
