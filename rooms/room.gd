@@ -3,9 +3,10 @@ extends PanelContainer
 class_name GameArea
 
 @export var room_name = "Room Name":set = set_room_name
-@export var room_description = "This is the description of the room":set = set_room_description
+@export_multiline var room_description = "This is the description of the room":set = set_room_description
 
 var exits: Dictionary = {}
+var npcs = []
 var items = []
 
 func set_room_name(new_name: String):
@@ -25,21 +26,42 @@ func remove_item(item: Item):
 	items.erase(item)
 
 
+func add_npc(npc: NPC):
+	npcs.append(npc)
+
+
 func get_full_description() -> String:
-	var full_description = "\n".join(PackedStringArray([
-	  get_room_description(),
-	  get_item_description(),
-	  get_exit_description()
-	]))
-	return full_description
+	var full_description = PackedStringArray([get_room_description()])
+	
+	var npc_description = get_npc_description()
+	if npc_description != "":
+		full_description.append(npc_description)
+	
+	var item_description = get_item_description()
+	if item_description != "":
+		full_description.append(item_description)
+	
+	full_description.append(get_exit_description())
+	
+	var full_description_string = "\n".join(full_description)
+	return full_description_string
 	
 	
 func get_room_description() -> String:
 	return "You are now in: " 	+ room_name + ". It is " + room_description
 
+func get_npc_description() -> String:
+	if npcs.size() == 0:
+		return ""
+	
+	var npc_string = ""
+	for npc in npcs:
+		npc_string += npc.npc_name + " "	
+	return "NPCs: " + npc_string
+
 func get_item_description() -> String:
 	if items.size() == 0:
-		return "No items to pickup."
+		return ""
 	
 	var item_string = ""
 	for item in items:

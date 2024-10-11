@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="NPC" load_steps=2 format=3 uid="uid://bjr0ynx42807j"]
+
+[ext_resource type="Script" path="res://npcs/npc.gd" id="1_xv68r"]
+
+[resource]
+script = ExtResource("1_xv68r")
+npc_name = "innkeeper"
+initial_dialog = "Hi traveler! if you want to win the game, head north to the shed and talk to the guard!"
+post_quest_dialog = ""

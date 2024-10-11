@@ -44,8 +44,8 @@ script = ExtResource("2_d0woi")
 script = ExtResource("3_8w3b6")
 
 [node name="HouseRoom" parent="RoomManager" instance=ExtResource("3_2tqjk")]
-room_name = "a house"
-room_description = "a random house"
+room_name = "a inn"
+room_description = "a random inn"
 
 [node name="OutsideRoom" parent="RoomManager" instance=ExtResource("3_2tqjk")]
 offset_left = 480.0

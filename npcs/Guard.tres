@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="NPC" load_steps=2 format=3 uid="uid://dkkyofhxsm41p"]
+
+[ext_resource type="Script" path="res://npcs/npc.gd" id="1_rf2lt"]
+
+[resource]
+script = ExtResource("1_rf2lt")
+npc_name = "Guard"
+initial_dialog = "Err.. You cannot pass! I seem to have lost my sword outside in the field. And until i recover it nobody goes through."
+post_quest_dialog = "You found it! You can pass."
