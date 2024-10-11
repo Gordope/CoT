@@ -11,4 +11,5 @@ func _ready() -> void:
 	$HouseRoom.connect_exit_unlocked("east", $OutsideRoom)
 	
 	$OutsideRoom.add_item(key)
-	$OutsideRoom.connect_exit_locked("north", $ShedRoom)
+	var exit = $OutsideRoom.connect_exit_locked("north", $ShedRoom)
+	key.use_value = exit
