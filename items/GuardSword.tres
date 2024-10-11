@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="Item" load_steps=2 format=3 uid="uid://bp0jlnqf7vqol"]
+
+[ext_resource type="Script" path="res://items/item.gd" id="1_3n6oq"]
+
+[resource]
+script = ExtResource("1_3n6oq")
+item_name = "sword"
+item_type = 0
