@@ -126,6 +126,13 @@ func give(second_word):
 	for npc in current_room.npcs:
 		if npc.quest_item != null and second_word.to_lower() == npc.quest_item.item_name.to_lower():
 			npc.has_received_quest_item = true
+			if npc.quest_reward != null:
+				var reward = npc.quest_reward
+				if "is_locked" in reward:
+					reward.is_locked = false
+				else:
+					printerr("Warning - tried to have quest reward type that is not implemented.")
+					
 			for item in player.inventory:
 				if second_word.to_lower() == item.item_name.to_lower():
 					player.drop_item(item)
