@@ -76,9 +76,9 @@ func inventory():
 
 
 func use(second_word: String) -> String:
-	if second_word == " ":
-		return "Use what?"
-	
+	if second_word == "":
+		return Types.wrap_system_text("Drop what?")
+
 	for item in player.inventory:
 		if second_word.to_lower() == item.item_name.to_lower():
 			match item.item_type:
@@ -87,10 +87,11 @@ func use(second_word: String) -> String:
 						if exit.room_2 == item.use_value:
 							exit.room_2_is_locked = false
 							player.drop_item(item)
-							return "You use %s to unlock a door to %s" % [item.item_name, exit.room_2.room_name]
-						return "That item does not unlock any doors in this room"
+							return "You use a %s to unlock %s." % [item.item_name, exit.room_2.room_name]
+					return "Your %s does not unlock anything here." % item.item_name
 				_:
-					return "Error - tried to use an item of invalid item type"
+					return "Error - tried to use an item with an invalid type."
+
 	return "You don't have that item."
 
 
