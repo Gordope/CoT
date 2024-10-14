@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://dwd8ug3siqd4q"]
+[gd_scene load_steps=16 format=3 uid="uid://dwd8ug3siqd4q"]
 
 [ext_resource type="Script" path="res://control_(root).gd" id="1_gddro"]
 [ext_resource type="FontFile" uid="uid://qoioaxtb7nx3" path="res://fonts/IBMPlexMono-Regular.ttf" id="2_ctj0n"]
@@ -9,6 +9,7 @@
 [ext_resource type="Script" path="res://rooms/room_manager.gd" id="3_8w3b6"]
 [ext_resource type="Script" path="res://v_box_container.gd" id="3_ryk62"]
 [ext_resource type="PackedScene" uid="uid://do35nx1qcq4q2" path="res://game_info.tscn" id="6_2dxfe"]
+[ext_resource type="PackedScene" uid="uid://buv32iwlmfh4h" path="res://side_panel.tscn" id="9_6x4xp"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cth3c"]
 bg_color = Color(0.0768358, 0.0768358, 0.0768358, 1)
@@ -77,28 +78,33 @@ theme_override_constants/margin_top = 20
 theme_override_constants/margin_right = 20
 theme_override_constants/margin_bottom = 20
 
-[node name="Rows" type="VBoxContainer" parent="Background/MarginContainer"]
+[node name="Columns" type="HBoxContainer" parent="Background/MarginContainer"]
 layout_mode = 2
 theme_override_constants/separation = 20
 
-[node name="GameInfo" parent="Background/MarginContainer/Rows" instance=ExtResource("6_2dxfe")]
+[node name="Rows" type="VBoxContainer" parent="Background/MarginContainer/Columns"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 20
+
+[node name="GameInfo" parent="Background/MarginContainer/Columns/Rows" instance=ExtResource("6_2dxfe")]
 layout_mode = 2
 
-[node name="InputArea" type="PanelContainer" parent="Background/MarginContainer/Rows"]
+[node name="InputArea" type="PanelContainer" parent="Background/MarginContainer/Columns/Rows"]
 custom_minimum_size = Vector2(0, 60)
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_jk5tq")
 
-[node name="HBoxContainer" type="HBoxContainer" parent="Background/MarginContainer/Rows/InputArea"]
+[node name="HBoxContainer" type="HBoxContainer" parent="Background/MarginContainer/Columns/Rows/InputArea"]
 layout_mode = 2
 
-[node name="Caret" type="Label" parent="Background/MarginContainer/Rows/InputArea/HBoxContainer"]
+[node name="Caret" type="Label" parent="Background/MarginContainer/Columns/Rows/InputArea/HBoxContainer"]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("2_ctj0n")
 theme_override_font_sizes/font_size = 28
 text = " > "
 
-[node name="Input" type="LineEdit" parent="Background/MarginContainer/Rows/InputArea/HBoxContainer"]
+[node name="Input" type="LineEdit" parent="Background/MarginContainer/Columns/Rows/InputArea/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_fonts/font = ExtResource("2_ctj0n")
@@ -107,6 +113,9 @@ theme_override_styles/focus = SubResource("StyleBoxEmpty_am3mq")
 theme_override_styles/normal = SubResource("StyleBoxEmpty_36lko")
 max_length = 48
 script = ExtResource("2_l4urd")
+
+[node name="SidePanel" parent="Background/MarginContainer/Columns" instance=ExtResource("9_6x4xp")]
+layout_mode = 2
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 visible = false
@@ -241,8 +250,8 @@ custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
 max_value = 30.0
 
-[connection signal="text_submitted" from="Background/MarginContainer/Rows/InputArea/HBoxContainer/Input" to="." method="_on_input_text_submitted"]
-[connection signal="text_submitted" from="Background/MarginContainer/Rows/InputArea/HBoxContainer/Input" to="Background/MarginContainer/Rows/InputArea/HBoxContainer/Input" method="_on_text_submitted"]
+[connection signal="text_submitted" from="Background/MarginContainer/Columns/Rows/InputArea/HBoxContainer/Input" to="." method="_on_input_text_submitted"]
+[connection signal="text_submitted" from="Background/MarginContainer/Columns/Rows/InputArea/HBoxContainer/Input" to="Background/MarginContainer/Columns/Rows/InputArea/HBoxContainer/Input" method="_on_text_submitted"]
 [connection signal="value_changed" from="VBoxContainer/HBoxContainer (str)/Value str" to="." method="_on_value_str_value_changed"]
 [connection signal="value_changed" from="VBoxContainer/HBoxContainer (str)/Value str" to="VBoxContainer" method="_on_value_str_value_changed"]
 [connection signal="value_changed" from="VBoxContainer/HBoxContainer (str)/HSlider str" to="." method="_on_h_slider_str_value_changed"]
@@ -262,7 +271,7 @@ max_value = 30.0
 [connection signal="value_changed" from="VBoxContainer/HBoxContainer (char)/Value char" to="." method="_on_value_char_value_changed"]
 [connection signal="value_changed" from="VBoxContainer/HBoxContainer (char)/Value char" to="VBoxContainer" method="_on_value_char_value_changed"]
 [connection signal="value_changed" from="VBoxContainer/HBoxContainer (char)/HSlider char" to="." method="_on_h_slider_char_value_changed"]
-[connection signal="value_changed" from="VBoxContainer/HBoxContainer (char)/HSlider char" to="Background/MarginContainer/Rows/InputArea/HBoxContainer/Input" method="_on_h_slider_char_value_changed"]
+[connection signal="value_changed" from="VBoxContainer/HBoxContainer (char)/HSlider char" to="Background/MarginContainer/Columns/Rows/InputArea/HBoxContainer/Input" method="_on_h_slider_char_value_changed"]
 [connection signal="value_changed" from="VBoxContainer/HBoxContainer (char)/HSlider char" to="VBoxContainer" method="_on_h_slider_char_value_changed"]
 [connection signal="value_changed" from="VBoxContainer/HBoxContainer (wis)/Value wis" to="." method="_on_value_wis_value_changed"]
 [connection signal="value_changed" from="VBoxContainer/HBoxContainer (wis)/Value wis" to="VBoxContainer" method="_on_value_wis_value_changed"]

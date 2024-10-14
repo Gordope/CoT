@@ -1,0 +1,82 @@
+[gd_scene load_steps=4 format=3 uid="uid://buv32iwlmfh4h"]
+
+[ext_resource type="StyleBox" uid="uid://cvb8pg3bbg32e" path="res://main_panel.tres" id="1_mvkk2"]
+[ext_resource type="Script" path="res://side_panel.gd" id="2_4k723"]
+[ext_resource type="FontFile" uid="uid://qoioaxtb7nx3" path="res://fonts/IBMPlexMono-Regular.ttf" id="3_548qj"]
+
+[node name="SidePanel" type="PanelContainer"]
+custom_minimum_size = Vector2(320, 0)
+theme_override_styles/panel = ExtResource("1_mvkk2")
+script = ExtResource("2_4k723")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="Rows" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="TitleSection" type="VBoxContainer" parent="MarginContainer/Rows"]
+layout_mode = 2
+
+[node name="InfoLabel" type="Label" parent="MarginContainer/Rows/TitleSection"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.631373, 0.631373, 0.631373, 1)
+theme_override_fonts/font = ExtResource("3_548qj")
+theme_override_font_sizes/font_size = 16
+text = "You are in..."
+
+[node name="RoomNameLabel" type="Label" parent="MarginContainer/Rows/TitleSection"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.980392, 1, 0.580392, 1)
+theme_override_fonts/font = ExtResource("3_548qj")
+theme_override_font_sizes/font_size = 24
+text = "A Room"
+autowrap_mode = 2
+
+[node name="RoomDescriptionLabel" type="Label" parent="MarginContainer/Rows"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_548qj")
+theme_override_font_sizes/font_size = 16
+text = "This is will be were the room description goes"
+autowrap_mode = 2
+
+[node name="ListArea" type="VBoxContainer" parent="MarginContainer/Rows"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="ExitLabel" type="RichTextLabel" parent="MarginContainer/Rows/ListArea"]
+layout_mode = 2
+theme_override_fonts/normal_font = ExtResource("3_548qj")
+theme_override_font_sizes/normal_font_size = 16
+bbcode_enabled = true
+text = "Exits: Option"
+fit_content = true
+
+[node name="NpcLabel" type="RichTextLabel" parent="MarginContainer/Rows/ListArea"]
+layout_mode = 2
+theme_override_fonts/normal_font = ExtResource("3_548qj")
+theme_override_font_sizes/normal_font_size = 16
+bbcode_enabled = true
+text = "NPCs: Option"
+fit_content = true
+
+[node name="ItemLabel" type="RichTextLabel" parent="MarginContainer/Rows/ListArea"]
+layout_mode = 2
+theme_override_fonts/normal_font = ExtResource("3_548qj")
+theme_override_font_sizes/normal_font_size = 16
+bbcode_enabled = true
+text = "Items: Option"
+fit_content = true
+
+[node name="HelpLabel" type="Label" parent="MarginContainer/Rows"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.827451, 0.580392, 1)
+theme_override_fonts/font = ExtResource("3_548qj")
+theme_override_font_sizes/font_size = 16
+text = "You can type \"help\" to see all possible commands."
+autowrap_mode = 2

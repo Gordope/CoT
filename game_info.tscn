@@ -1,13 +1,11 @@
 [gd_scene load_steps=3 format=3 uid="uid://do35nx1qcq4q2"]
 
+[ext_resource type="StyleBox" uid="uid://cvb8pg3bbg32e" path="res://main_panel.tres" id="1_n4fhr"]
 [ext_resource type="Script" path="res://game_info.gd" id="1_w2hh2"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_e3dik"]
-bg_color = Color(0.223103, 0.223103, 0.223103, 1)
 
 [node name="GameInfo" type="PanelContainer"]
 size_flags_vertical = 3
-theme_override_styles/panel = SubResource("StyleBoxFlat_e3dik")
+theme_override_styles/panel = ExtResource("1_n4fhr")
 script = ExtResource("1_w2hh2")
 
 [node name="Scroll" type="ScrollContainer" parent="."]

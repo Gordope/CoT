@@ -26,7 +26,7 @@ theme_override_constants/separation = 5
 
 [node name="InputHistory" type="Label" parent="Rows"]
 layout_mode = 2
-theme_override_colors/font_color = Color(0.544974, 0.544974, 0.544974, 1)
+theme_override_colors/font_color = Color(0.631373, 0.631373, 0.631373, 1)
 theme_override_fonts/font = ExtResource("1_lo1gw")
 theme_override_font_sizes/font_size = 24
 text = " > This is what the user typed"
