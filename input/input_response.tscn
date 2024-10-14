@@ -4,15 +4,22 @@
 [ext_resource type="FontFile" uid="uid://qoioaxtb7nx3" path="res://fonts/IBMPlexMono-Regular.ttf" id="1_lo1gw"]
 [ext_resource type="PackedScene" uid="uid://ci6okorqjixdq" path="res://input/response.tscn" id="3_e75gj"]
 
-[node name="InputResponse" type="VBoxContainer"]
+[node name="InputResponse" type="MarginContainer"]
+offset_top = 117.0
+offset_right = 432.0
+offset_bottom = 117.0
 script = ExtResource("1_5xurg")
 
-[node name="InputHistory" type="Label" parent="."]
+[node name="Rows" type="VBoxContainer" parent="."]
+layout_mode = 2
+theme_override_constants/separation = 5
+
+[node name="InputHistory" type="Label" parent="Rows"]
 layout_mode = 2
 theme_override_colors/font_color = Color(0.544974, 0.544974, 0.544974, 1)
 theme_override_fonts/font = ExtResource("1_lo1gw")
 theme_override_font_sizes/font_size = 24
 text = " > This is what the user typed"
 
-[node name="Response" parent="." instance=ExtResource("3_e75gj")]
+[node name="Response" parent="Rows" instance=ExtResource("3_e75gj")]
 layout_mode = 2
