@@ -5,6 +5,8 @@ const INPUT_RESPONSE = preload("res://input/input_response.tscn")
 
 @export var max_lines_remembered := 30
 
+var should_zebra := false
+
 @onready var scroll = $Scroll
 @onready var scrollbar = scroll.get_v_scroll_bar()
 @onready var history_rows = $Scroll/HistoryRows
@@ -40,4 +42,7 @@ func delete_history_beyond_limit():
 
 func _add_response_to_game(response: Control):
 	history_rows.add_child(response)
+	if not should_zebra:
+		response.zebra.hide()
+	should_zebra = !should_zebra
 	delete_history_beyond_limit()

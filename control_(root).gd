@@ -7,7 +7,7 @@ extends Control
 
 
 func _ready() -> void:
-	game_info.create_response("Welcome to havenlight! Type 'help' for available commands")
+	game_info.create_response(Types.wrap_system_text("Welcome to Havenlight! You can type 'help' to see available commands."))
 	
 	var starting_room_response = command_processor.initialize(room_manager.get_child(0), player)
 	game_info.create_response(starting_room_response)

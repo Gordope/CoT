@@ -36,52 +36,55 @@ func process_command(input: String) -> String:
 		"help":
 			return help()
 		_:
-			return "Unrecognized command - please try again"
-			
+			return Types.wrap_system_text("Unrecognized command - please try again")
+
+
 func go(second_word: String) -> String:
 	if second_word == " ":
-		return "Go where?"
+		return Types.wrap_system_text("Go where?")
 	
 	if current_room.exits.keys().has(second_word):
 		var exit = current_room.exits[second_word]
 		if exit.is_locked:
-			return "%s is currently locked!" % second_word
+			return Types.wrap_location_text(second_word) + " is currently " + Types.wrap_system_text("location!")
 			
 		var change_response = change_room(exit.get_other_room(current_room))
-		return "\n".join(PackedStringArray(["You go %s." % second_word, change_response]))	
+		return "\n".join(PackedStringArray(["You go " + Types.wrap_location_text(second_word) + '.', change_response]))	
 	else:
-		return "This room has no exit in that direction!"
+		return "This room has no " + Types.wrap_location_text(second_word) + " exit."
 
 func take(second_word: String) -> String:
 	if second_word == " ":
-		return "Take what?"
+		return Types.wrap_system_text("Take what?")
 	
 	for item in current_room.items:
 		if second_word.to_lower() == item.item_name.to_lower():
 			current_room.remove_item(item)
 			player.take_item(item)
-			return "You take the " + item.item_name
+			return "You take the " + Types.wrap_item_text(second_word) + "."
 	
-	return "There is no item like that in this room."
+	return "There is no " + Types.wrap_item_text(second_word) + " here."
 
 func drop(second_word: String) -> String:
 	if second_word == " ":
-		return "Drop what?"
+		return Types.wrap_system_text("Drop what?")
 	
 	for item in player.inventory:
 		if second_word.to_lower() == item.item_name.to_lower():
 			player.drop_item(item)
 			current_room.add_item(item)
-			return "You drop the " + item.item_name
+			return "You drop the " + Types.wrap_item_text(item.item_name) + "."
 	
-	return "You don't have that item."
+	return "You don't have anything called " + Types.wrap_item_text(second_word) + "."
+
+
 func inventory():
 	return player.get_inventory_list()
 
 
 func use(second_word: String) -> String:
 	if second_word == " ":
-		return "Use what?"
+		return Types.wrap_system_text("Use what?")
 
 	for item in player.inventory:
 		if second_word.to_lower() == item.item_name.to_lower():
@@ -91,28 +94,29 @@ func use(second_word: String) -> String:
 						if exit == item.use_value:
 							exit.is_locked = false
 							player.drop_item(item)
-							return "You use a %s to unlock %s." % [item.item_name, exit.get_other_room(current_room).room_name]
-					return "Your %s does not unlock anything here." % item.item_name
+							return "You use a " + Types.wrap_item_text(second_word) + " to unlock " + Types.wrap_location_text(exit.get_other_room(current_room).room_name) + "."
+					return "Your " + Types.wrap_item_text(second_word) + " does not unlock anything here."
 				_:
-					return "Error - tried to use an item with an invalid type."
+					return Types.wrap_system_text("Error - tried to use an item with an invalid type.")
 
-	return "You don't have that item."
+	return "You don't have a " + Types.wrap_item_text(second_word) + "."
+
 
 
 func talk(second_word: String) -> String:
 	if second_word == " ":
-		return "Talk to whom?"
+		return Types.wrap_system_text("Talk to who?")
 	
 	for npc in current_room.npcs:
 		if npc.npc_name.to_lower() == second_word:
 			var dialog = npc.post_quest_dialog if npc.has_received_quest_item else npc.initial_dialog
-			return npc.npc_name + ": \"" + dialog + "\""
+			return Types.wrap_npc_text(npc.npc_name + ": ") + Types.wrap_speech_text("\"" + dialog + "\"")
 	
-	return "That person is not in the room."
+	return "There is no " + Types.wrap_npc_text(second_word) + " here."
 
 func give(second_word):
 	if second_word == " ":
-		return "Give what?"
+		return Types.wrap_system_text("Give what?")
 	
 	var has_item := false
 	for item in player.inventory:
@@ -120,7 +124,7 @@ func give(second_word):
 			has_item = true
 	
 	if not has_item:
-		return "You don't have that item."
+		return "You don't have a " + Types.wrap_item_text(second_word) + "."
 	
 	
 	for npc in current_room.npcs:
@@ -136,16 +140,27 @@ func give(second_word):
 			for item in player.inventory:
 				if second_word.to_lower() == item.item_name.to_lower():
 					player.drop_item(item)
-			return "You give the %s to the %s." % [second_word, npc.npc_name]
+			return "You give the " + Types.wrap_item_text(second_word) + " to the " +  Types.wrap_npc_text(npc.npc_name) + "."
 	
-	return "Nobody here want that item."
+	return "Nobody here wants a" + Types.wrap_item_text(second_word) + "."
 
 func help() -> String:
-	return "You can use these commands: go [location], take [item], drop [item], use [item], talk [npc], give [item], inventory, help"
+	return "\n".join(PackedStringArray([
+		"You can use these commands: ",
+		" go " + Types.wrap_location_text("[location]"),
+		" take " + Types.wrap_item_text("[item]"),
+		" drop " + Types.wrap_item_text("[item]"),
+		" use " + Types.wrap_item_text("[item]"),
+		" talk " + Types.wrap_npc_text("[npc]"),
+		" give " + Types.wrap_item_text("[item]"),
+		" inventory",
+		" help"
+	]))
 
 
 func change_room(new_room: GameArea) -> String:
 	current_room = new_room
 	return new_room.get_full_description()
-	
+
+
 	

@@ -1,9 +1,19 @@
-[gd_scene load_steps=2 format=3 uid="uid://ci6okorqjixdq"]
+[gd_scene load_steps=3 format=3 uid="uid://ci6okorqjixdq"]
 
 [ext_resource type="FontFile" uid="uid://qoioaxtb7nx3" path="res://fonts/IBMPlexMono-Regular.ttf" id="1_vkw0g"]
+[ext_resource type="FontFile" uid="uid://bdu2732y362hq" path="res://fonts/IBMPlexMono-SemiBold.ttf" id="2_udn1y"]
 
-[node name="Response" type="Label"]
-theme_override_fonts/font = ExtResource("1_vkw0g")
-theme_override_font_sizes/font_size = 28
+[node name="Response" type="RichTextLabel"]
+custom_minimum_size = Vector2(1000, 0)
+offset_right = 1.0
+offset_bottom = 22.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_fonts/normal_font = ExtResource("1_vkw0g")
+theme_override_fonts/bold_font = ExtResource("2_udn1y")
+theme_override_font_sizes/bold_italics_font_size = 28
+theme_override_font_sizes/normal_font_size = 28
+bbcode_enabled = true
 text = "This is what the game will give back"
+fit_content = true
 autowrap_mode = 2
