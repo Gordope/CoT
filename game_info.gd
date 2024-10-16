@@ -21,20 +21,20 @@ func _ready() -> void:
 #### PUBLIC #####
 func create_response(response_text: String):
 	#var response = INPUT_RESPONSE.instantiate()
-	history_rows_queue[response_text]
+	history_rows_queue[response_text] = null
 	#response.set_text(response_text)
 	
 
 func create_response_with_input(response_text: String, input_text: String):
-	var input_response = INPUT_RESPONSE.instantiate()
-	add_response_to_game(input_response)
-	input_response.set_text(response_text, input_text)
+	#var input_response = INPUT_RESPONSE.instantiate()
+	history_rows_queue[response_text] = input_text
+	#input_response.set_text(response_text, input_text)
 
 
 func add_scene(SCENE):
-	var scene = SCENE.instantiate()
-	history_rows.add_child(scene)
-				   
+	#var scene = SCENE.instantiate()
+	#history_rows.add_child(scene)
+	history_rows_queue[SCENE] = null
 
 
 func delete_start_message():
@@ -42,16 +42,20 @@ func delete_start_message():
 	history_rows.get_child(1).queue_free()
 
 func test():
-	var response = INPUT_RESPONSE.instantiate()
-	history_rows.add_child(response)
-	response.set_text()
-	var key = history_rows_queue.keys()[0]  
-	var value = history_rows_queue[key]     
-	history_rows_queue.erase(key)
-	if value != null:
-		response.set_text(key, value)
-	else:
-		response.set_text(key)
+	if history_rows_queue.keys().is_empty() == false:
+		if history_rows_queue.keys()[0] is String:
+			var response = INPUT_RESPONSE.instantiate()
+			history_rows.add_child(response)
+			var key = history_rows_queue.keys()[0]  
+			var value = history_rows_queue[key]     
+			history_rows_queue.erase(key)
+			if value != null:
+				response.set_text(key, value)
+			else:
+				response.set_text(key)
+		else:
+			var scene = history_rows_queue.keys()[0].instantiate()
+			history_rows_queue.erase(history_rows_queue.keys()[0])
 
 
 func add_response_to_game(response: Control):

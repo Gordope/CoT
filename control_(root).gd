@@ -15,10 +15,12 @@ func _ready() -> void:
 	var intro_story = create_intro_story()
 	game_info.create_response(intro_story)
 	game_info.add_scene(START_BUTTON)
+	game_info.test()
 	
 
 func temp():
 	game_info.add_scene(STAT_SELECTOR)
+	
 	
 	game_info.create_response(Types.wrap_system_text("Welcome to Havenlight! You can type 'help' to see available commands."))
 	
