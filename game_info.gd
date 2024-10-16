@@ -16,90 +16,32 @@ func _ready() -> void:
 
 #### PUBLIC #####
 func create_response(response_text: String):
-<<<<<<< HEAD
-<<<<<<< HEAD
-	#var response = INPUT_RESPONSE.instantiate()
-	history_rows_queue[response_text] = null
-	#response.set_text(response_text)
+	var response = INPUT_RESPONSE.instantiate()
+	_add_response_to_game(response)
+	response.set_text(response_text)
 	
 
 func create_response_with_input(response_text: String, input_text: String):
-	#var input_response = INPUT_RESPONSE.instantiate()
-	history_rows_queue[response_text] = input_text
-	#input_response.set_text(response_text, input_text)
+	var input_response = INPUT_RESPONSE.instantiate()
+	_add_response_to_game(input_response)
+	input_response.set_text(response_text, input_text)
 
 
 func add_scene(SCENE):
-	#var scene = SCENE.instantiate()
-	#history_rows.add_child(scene)
-	history_rows_queue[SCENE] = null
+	var scene = SCENE.instantiate()
+	history_rows.add_child(scene)
 
 
 func delete_start_message():
 	history_rows.get_child(0).queue_free()
 	history_rows.get_child(1).queue_free()
 
-func test():
-	if history_rows_queue.keys().is_empty() == false:
-		if history_rows_queue.keys()[0] is String:
-			var response = INPUT_RESPONSE.instantiate()
-			history_rows.add_child(response)
-			var key = history_rows_queue.keys()[0]  
-			var value = history_rows_queue[key]     
-			history_rows_queue.erase(key)
-			if value != null:
-				response.set_text(key, value)
-			else:
-				response.set_text(key)
-		else:
-			var scene = history_rows_queue.keys()[0].instantiate()
-			history_rows_queue.erase(history_rows_queue.keys()[0])
-=======
-	var response = INPUT_RESPONSE.instantiate()
-	_add_response_to_game(response)
-	response.set_text(response_text)
-	
-
-func create_response_with_input(response_text: String, input_text: String):
-	var input_response = INPUT_RESPONSE.instantiate()
-	_add_response_to_game(input_response)
-	input_response.set_text(response_text, input_text)
-
-
-func add_stat_selector(STAT_SELECTOR):
-	var stat_selector = STAT_SELECTOR.instantiate()
-	history_rows.add_child(stat_selector)
-
-
-#### PRIVATE ####
-func handle_scrollbar_changed():
-	scroll.scroll_vertical = scrollbar.max_value
->>>>>>> parent of 7ed5603 (backup for new queue system)
-
-
-=======
-	var response = INPUT_RESPONSE.instantiate()
-	_add_response_to_game(response)
-	response.set_text(response_text)
-	
-
-func create_response_with_input(response_text: String, input_text: String):
-	var input_response = INPUT_RESPONSE.instantiate()
-	_add_response_to_game(input_response)
-	input_response.set_text(response_text, input_text)
-
-
-func add_stat_selector(STAT_SELECTOR):
-	var stat_selector = STAT_SELECTOR.instantiate()
-	history_rows.add_child(stat_selector)
-
 
 #### PRIVATE ####
 func handle_scrollbar_changed():
 	scroll.scroll_vertical = scrollbar.max_value
 
 
->>>>>>> parent of 7ed5603 (backup for new queue system)
 func _add_response_to_game(response: Control):
 	history_rows.add_child(response)
 	if not should_zebra:
