@@ -1,20 +1,24 @@
 extends Control
 
 const STAT_SELECTOR = preload("res://stat_selector.tscn")
+const START_BUTTON = preload("res://start_game_button.tscn")
 
 @onready var game_info = $Background/MarginContainer/Columns/Rows/GameInfo
 @onready var command_processor = $CommandProcessor
 @onready var room_manager = $RoomManager
 @onready var player = $Player
+@onready var input = $Background/MarginContainer/Columns/Rows/InputArea/HBoxContainer/Input
 
 
 func _ready() -> void:
+	input.editable = false
 	var intro_story = create_intro_story()
 	game_info.create_response(intro_story)
+	game_info.add_scene(START_BUTTON)
 	
 
 func temp():
-	game_info.add_stat_selector(STAT_SELECTOR)
+	game_info.add_scene(STAT_SELECTOR)
 	
 	game_info.create_response(Types.wrap_system_text("Welcome to Havenlight! You can type 'help' to see available commands."))
 	
@@ -24,6 +28,7 @@ func temp():
 	
 	var starting_room_response = command_processor.initialize(room_manager.get_child(0), player)
 	game_info.create_response(starting_room_response)
+
 
 func _on_input_text_submitted(new_text: String) -> void:
 	if new_text.is_empty():
@@ -69,3 +74,6 @@ But lately, whispers have spread through the ruins, a promise of salvation, rumo
 They speak of a city - HAVENLIGHT."
 	
 	return intro_story
+
+func start_button():
+	game_info.delete_start_message()
