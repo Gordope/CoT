@@ -13,6 +13,8 @@ func set_text(response: String, input: String = ""):
 		input_label.text = " > " + input
 	
 	response_label.text = response
+	print(response_label.visible_characters)
+	print(response_label.get_total_character_count())
 	$ShowTextTimer.start(0.03)
 	
 
