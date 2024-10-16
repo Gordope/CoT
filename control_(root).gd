@@ -12,15 +12,21 @@ func _ready() -> void:
 	var intro_story = create_intro_story()
 	game_info.create_response(intro_story)
 <<<<<<< HEAD
+<<<<<<< HEAD
 	game_info.add_scene(START_BUTTON)
 	game_info.test()
+=======
+>>>>>>> parent of 7ed5603 (backup for new queue system)
 =======
 >>>>>>> parent of 7ed5603 (backup for new queue system)
 	
 
 func temp():
 	game_info.add_stat_selector(STAT_SELECTOR)
+<<<<<<< HEAD
 	
+=======
+>>>>>>> parent of 7ed5603 (backup for new queue system)
 	
 	game_info.create_response(Types.wrap_system_text("Welcome to Havenlight! You can type 'help' to see available commands."))
 	
