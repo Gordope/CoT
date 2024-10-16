@@ -13,3 +13,8 @@ func set_text(response: String, input: String = ""):
 		input_label.text = " > " + input
 	
 	response_label.text = response
+	show_text()
+
+
+func show_text():
+	$AnimationPlayer.play("show_text")

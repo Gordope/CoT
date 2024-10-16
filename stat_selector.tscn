@@ -1,0 +1,151 @@
+[gd_scene load_steps=3 format=3 uid="uid://b87u77wc8q6h1"]
+
+[ext_resource type="Script" path="res://v_box_container.gd" id="1_24tts"]
+
+[sub_resource type="Theme" id="Theme_dnibs"]
+
+[node name="StatSelector" type="VBoxContainer"]
+offset_left = 20.0
+offset_top = 20.0
+offset_right = 1132.0
+offset_bottom = 548.0
+script = ExtResource("1_24tts")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="Remaining points" type="Label" parent="HBoxContainer"]
+layout_mode = 2
+theme = SubResource("Theme_dnibs")
+text = "Remaining points"
+
+[node name="Value points" type="Label" parent="HBoxContainer"]
+layout_mode = 2
+
+[node name="Label str" type="Label" parent="."]
+layout_mode = 2
+text = "Strength"
+
+[node name="HBoxContainer (str)" type="HBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="Value str" type="SpinBox" parent="HBoxContainer (str)"]
+layout_mode = 2
+max_value = 30.0
+
+[node name="HSlider str" type="HSlider" parent="HBoxContainer (str)"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+max_value = 30.0
+
+[node name="Label dex" type="Label" parent="."]
+layout_mode = 2
+text = "Dexterity"
+
+[node name="HBoxContainer (dex)" type="HBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="Value dex" type="SpinBox" parent="HBoxContainer (dex)"]
+layout_mode = 2
+max_value = 30.0
+
+[node name="HSlider dex" type="HSlider" parent="HBoxContainer (dex)"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+max_value = 30.0
+
+[node name="Label int" type="Label" parent="."]
+layout_mode = 2
+text = "Intelligence"
+
+[node name="HBoxContainer (int)" type="HBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="Value int" type="SpinBox" parent="HBoxContainer (int)"]
+layout_mode = 2
+max_value = 30.0
+
+[node name="HSlider int" type="HSlider" parent="HBoxContainer (int)"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+max_value = 30.0
+
+[node name="Label luck" type="Label" parent="."]
+layout_mode = 2
+text = "Luck"
+
+[node name="HBoxContainer (luck)" type="HBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="Value luck" type="SpinBox" parent="HBoxContainer (luck)"]
+layout_mode = 2
+max_value = 30.0
+
+[node name="HSlider luck" type="HSlider" parent="HBoxContainer (luck)"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+max_value = 30.0
+
+[node name="Label char" type="Label" parent="."]
+layout_mode = 2
+text = "Charisma"
+
+[node name="HBoxContainer (char)" type="HBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="Value char" type="SpinBox" parent="HBoxContainer (char)"]
+layout_mode = 2
+max_value = 30.0
+
+[node name="HSlider char" type="HSlider" parent="HBoxContainer (char)"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+max_value = 30.0
+
+[node name="Label wis" type="Label" parent="."]
+layout_mode = 2
+text = "Wisdom"
+
+[node name="HBoxContainer (wis)" type="HBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="Value wis" type="SpinBox" parent="HBoxContainer (wis)"]
+layout_mode = 2
+max_value = 30.0
+
+[node name="HSlider wis" type="HSlider" parent="HBoxContainer (wis)"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+max_value = 30.0
+
+[node name="Label con" type="Label" parent="."]
+layout_mode = 2
+text = "Constitution
+"
+
+[node name="HBoxContainer (con)" type="HBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="Value con" type="SpinBox" parent="HBoxContainer (con)"]
+layout_mode = 2
+max_value = 30.0
+
+[node name="HSlider con" type="HSlider" parent="HBoxContainer (con)"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+max_value = 30.0
+
+[connection signal="value_changed" from="HBoxContainer (str)/Value str" to="." method="_on_value_str_value_changed"]
+[connection signal="value_changed" from="HBoxContainer (str)/HSlider str" to="." method="_on_h_slider_str_value_changed"]
+[connection signal="value_changed" from="HBoxContainer (dex)/Value dex" to="." method="_on_value_dex_value_changed"]
+[connection signal="value_changed" from="HBoxContainer (dex)/HSlider dex" to="." method="_on_h_slider_dex_value_changed"]
+[connection signal="value_changed" from="HBoxContainer (int)/Value int" to="." method="_on_value_int_value_changed"]
+[connection signal="value_changed" from="HBoxContainer (int)/HSlider int" to="." method="_on_h_slider_int_value_changed"]
+[connection signal="value_changed" from="HBoxContainer (luck)/Value luck" to="." method="_on_value_luck_value_changed"]
+[connection signal="value_changed" from="HBoxContainer (luck)/HSlider luck" to="." method="_on_h_slider_luck_value_changed"]
+[connection signal="value_changed" from="HBoxContainer (char)/Value char" to="." method="_on_value_char_value_changed"]
+[connection signal="value_changed" from="HBoxContainer (char)/HSlider char" to="." method="_on_h_slider_char_value_changed"]
+[connection signal="value_changed" from="HBoxContainer (wis)/Value wis" to="." method="_on_value_wis_value_changed"]
+[connection signal="value_changed" from="HBoxContainer (wis)/HSlider wis" to="." method="_on_h_slider_wis_value_changed"]
+[connection signal="value_changed" from="HBoxContainer (con)/Value con" to="." method="_on_value_con_value_changed"]
+[connection signal="value_changed" from="HBoxContainer (con)/HSlider con" to="." method="_on_h_slider_con_value_changed"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://dwd8ug3siqd4q"]
+[gd_scene load_steps=14 format=3 uid="uid://dwd8ug3siqd4q"]
 
 [ext_resource type="Script" path="res://control_(root).gd" id="1_gddro"]
 [ext_resource type="FontFile" uid="uid://qoioaxtb7nx3" path="res://fonts/IBMPlexMono-Regular.ttf" id="2_ctj0n"]
@@ -7,7 +7,6 @@
 [ext_resource type="Script" path="res://input/input.gd" id="2_l4urd"]
 [ext_resource type="PackedScene" uid="uid://cnf20ymmo60s6" path="res://rooms/room.tscn" id="3_2tqjk"]
 [ext_resource type="Script" path="res://rooms/room_manager.gd" id="3_8w3b6"]
-[ext_resource type="Script" path="res://v_box_container.gd" id="3_ryk62"]
 [ext_resource type="PackedScene" uid="uid://do35nx1qcq4q2" path="res://game_info.tscn" id="6_2dxfe"]
 [ext_resource type="PackedScene" uid="uid://buv32iwlmfh4h" path="res://side_panel.tscn" id="9_6x4xp"]
 
@@ -20,8 +19,6 @@ bg_color = Color(0.31802, 0.31802, 0.31802, 1)
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_am3mq"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_36lko"]
-
-[sub_resource type="Theme" id="Theme_dnibs"]
 
 [node name="Control (root)" type="Control"]
 layout_mode = 3
@@ -117,167 +114,5 @@ script = ExtResource("2_l4urd")
 [node name="SidePanel" parent="Background/MarginContainer/Columns" instance=ExtResource("9_6x4xp")]
 layout_mode = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="."]
-visible = false
-layout_mode = 2
-offset_left = 20.0
-offset_top = 20.0
-offset_right = 1132.0
-offset_bottom = 548.0
-script = ExtResource("3_ryk62")
-
-[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
-layout_mode = 2
-
-[node name="Remaining points" type="Label" parent="VBoxContainer/HBoxContainer"]
-layout_mode = 2
-theme = SubResource("Theme_dnibs")
-text = "Remaining points"
-
-[node name="Value points" type="Label" parent="VBoxContainer/HBoxContainer"]
-layout_mode = 2
-
-[node name="Label str" type="Label" parent="VBoxContainer"]
-layout_mode = 2
-text = "Strength"
-
-[node name="HBoxContainer (str)" type="HBoxContainer" parent="VBoxContainer"]
-layout_mode = 2
-
-[node name="Value str" type="SpinBox" parent="VBoxContainer/HBoxContainer (str)"]
-layout_mode = 2
-max_value = 30.0
-
-[node name="HSlider str" type="HSlider" parent="VBoxContainer/HBoxContainer (str)"]
-custom_minimum_size = Vector2(200, 0)
-layout_mode = 2
-max_value = 30.0
-
-[node name="Label dex" type="Label" parent="VBoxContainer"]
-layout_mode = 2
-text = "Dexterity"
-
-[node name="HBoxContainer (dex)" type="HBoxContainer" parent="VBoxContainer"]
-layout_mode = 2
-
-[node name="Value dex" type="SpinBox" parent="VBoxContainer/HBoxContainer (dex)"]
-layout_mode = 2
-max_value = 30.0
-
-[node name="HSlider dex" type="HSlider" parent="VBoxContainer/HBoxContainer (dex)"]
-custom_minimum_size = Vector2(200, 0)
-layout_mode = 2
-max_value = 30.0
-
-[node name="Label int" type="Label" parent="VBoxContainer"]
-layout_mode = 2
-text = "Intelligence"
-
-[node name="HBoxContainer (int)" type="HBoxContainer" parent="VBoxContainer"]
-layout_mode = 2
-
-[node name="Value int" type="SpinBox" parent="VBoxContainer/HBoxContainer (int)"]
-layout_mode = 2
-max_value = 30.0
-
-[node name="HSlider int" type="HSlider" parent="VBoxContainer/HBoxContainer (int)"]
-custom_minimum_size = Vector2(200, 0)
-layout_mode = 2
-max_value = 30.0
-
-[node name="Label luck" type="Label" parent="VBoxContainer"]
-layout_mode = 2
-text = "Luck"
-
-[node name="HBoxContainer (luck)" type="HBoxContainer" parent="VBoxContainer"]
-layout_mode = 2
-
-[node name="Value luck" type="SpinBox" parent="VBoxContainer/HBoxContainer (luck)"]
-layout_mode = 2
-max_value = 30.0
-
-[node name="HSlider luck" type="HSlider" parent="VBoxContainer/HBoxContainer (luck)"]
-custom_minimum_size = Vector2(200, 0)
-layout_mode = 2
-max_value = 30.0
-
-[node name="Label char" type="Label" parent="VBoxContainer"]
-layout_mode = 2
-text = "Charisma"
-
-[node name="HBoxContainer (char)" type="HBoxContainer" parent="VBoxContainer"]
-layout_mode = 2
-
-[node name="Value char" type="SpinBox" parent="VBoxContainer/HBoxContainer (char)"]
-layout_mode = 2
-max_value = 30.0
-
-[node name="HSlider char" type="HSlider" parent="VBoxContainer/HBoxContainer (char)"]
-custom_minimum_size = Vector2(200, 0)
-layout_mode = 2
-max_value = 30.0
-
-[node name="Label wis" type="Label" parent="VBoxContainer"]
-layout_mode = 2
-text = "Wisdom"
-
-[node name="HBoxContainer (wis)" type="HBoxContainer" parent="VBoxContainer"]
-layout_mode = 2
-
-[node name="Value wis" type="SpinBox" parent="VBoxContainer/HBoxContainer (wis)"]
-layout_mode = 2
-max_value = 30.0
-
-[node name="HSlider wis" type="HSlider" parent="VBoxContainer/HBoxContainer (wis)"]
-custom_minimum_size = Vector2(200, 0)
-layout_mode = 2
-max_value = 30.0
-
-[node name="Label con" type="Label" parent="VBoxContainer"]
-layout_mode = 2
-text = "Constitution
-"
-
-[node name="HBoxContainer (con)" type="HBoxContainer" parent="VBoxContainer"]
-layout_mode = 2
-
-[node name="Value con" type="SpinBox" parent="VBoxContainer/HBoxContainer (con)"]
-layout_mode = 2
-max_value = 30.0
-
-[node name="HSlider con" type="HSlider" parent="VBoxContainer/HBoxContainer (con)"]
-custom_minimum_size = Vector2(200, 0)
-layout_mode = 2
-max_value = 30.0
-
 [connection signal="text_submitted" from="Background/MarginContainer/Columns/Rows/InputArea/HBoxContainer/Input" to="." method="_on_input_text_submitted"]
 [connection signal="text_submitted" from="Background/MarginContainer/Columns/Rows/InputArea/HBoxContainer/Input" to="Background/MarginContainer/Columns/Rows/InputArea/HBoxContainer/Input" method="_on_text_submitted"]
-[connection signal="value_changed" from="VBoxContainer/HBoxContainer (str)/Value str" to="." method="_on_value_str_value_changed"]
-[connection signal="value_changed" from="VBoxContainer/HBoxContainer (str)/Value str" to="VBoxContainer" method="_on_value_str_value_changed"]
-[connection signal="value_changed" from="VBoxContainer/HBoxContainer (str)/HSlider str" to="." method="_on_h_slider_str_value_changed"]
-[connection signal="value_changed" from="VBoxContainer/HBoxContainer (str)/HSlider str" to="VBoxContainer" method="_on_h_slider_str_value_changed"]
-[connection signal="value_changed" from="VBoxContainer/HBoxContainer (dex)/Value dex" to="." method="_on_value_dex_value_changed"]
-[connection signal="value_changed" from="VBoxContainer/HBoxContainer (dex)/Value dex" to="VBoxContainer" method="_on_value_dex_value_changed"]
-[connection signal="value_changed" from="VBoxContainer/HBoxContainer (dex)/HSlider dex" to="." method="_on_h_slider_dex_value_changed"]
-[connection signal="value_changed" from="VBoxContainer/HBoxContainer (dex)/HSlider dex" to="VBoxContainer" method="_on_h_slider_dex_value_changed"]
-[connection signal="value_changed" from="VBoxContainer/HBoxContainer (int)/Value int" to="." method="_on_value_int_value_changed"]
-[connection signal="value_changed" from="VBoxContainer/HBoxContainer (int)/Value int" to="VBoxContainer" method="_on_value_int_value_changed"]
-[connection signal="value_changed" from="VBoxContainer/HBoxContainer (int)/HSlider int" to="." method="_on_h_slider_int_value_changed"]
-[connection signal="value_changed" from="VBoxContainer/HBoxContainer (int)/HSlider int" to="VBoxContainer" method="_on_h_slider_int_value_changed"]
-[connection signal="value_changed" from="VBoxContainer/HBoxContainer (luck)/Value luck" to="." method="_on_value_luck_value_changed"]
-[connection signal="value_changed" from="VBoxContainer/HBoxContainer (luck)/Value luck" to="VBoxContainer" method="_on_value_luck_value_changed"]
-[connection signal="value_changed" from="VBoxContainer/HBoxContainer (luck)/HSlider luck" to="." method="_on_h_slider_luck_value_changed"]
-[connection signal="value_changed" from="VBoxContainer/HBoxContainer (luck)/HSlider luck" to="VBoxContainer" method="_on_h_slider_luck_value_changed"]
-[connection signal="value_changed" from="VBoxContainer/HBoxContainer (char)/Value char" to="." method="_on_value_char_value_changed"]
-[connection signal="value_changed" from="VBoxContainer/HBoxContainer (char)/Value char" to="VBoxContainer" method="_on_value_char_value_changed"]
-[connection signal="value_changed" from="VBoxContainer/HBoxContainer (char)/HSlider char" to="." method="_on_h_slider_char_value_changed"]
-[connection signal="value_changed" from="VBoxContainer/HBoxContainer (char)/HSlider char" to="Background/MarginContainer/Columns/Rows/InputArea/HBoxContainer/Input" method="_on_h_slider_char_value_changed"]
-[connection signal="value_changed" from="VBoxContainer/HBoxContainer (char)/HSlider char" to="VBoxContainer" method="_on_h_slider_char_value_changed"]
-[connection signal="value_changed" from="VBoxContainer/HBoxContainer (wis)/Value wis" to="." method="_on_value_wis_value_changed"]
-[connection signal="value_changed" from="VBoxContainer/HBoxContainer (wis)/Value wis" to="VBoxContainer" method="_on_value_wis_value_changed"]
-[connection signal="value_changed" from="VBoxContainer/HBoxContainer (wis)/HSlider wis" to="." method="_on_h_slider_wis_value_changed"]
-[connection signal="value_changed" from="VBoxContainer/HBoxContainer (wis)/HSlider wis" to="VBoxContainer" method="_on_h_slider_wis_value_changed"]
-[connection signal="value_changed" from="VBoxContainer/HBoxContainer (con)/Value con" to="." method="_on_value_con_value_changed"]
-[connection signal="value_changed" from="VBoxContainer/HBoxContainer (con)/Value con" to="VBoxContainer" method="_on_value_con_value_changed"]
-[connection signal="value_changed" from="VBoxContainer/HBoxContainer (con)/HSlider con" to="." method="_on_h_slider_con_value_changed"]
-[connection signal="value_changed" from="VBoxContainer/HBoxContainer (con)/HSlider con" to="VBoxContainer" method="_on_h_slider_con_value_changed"]

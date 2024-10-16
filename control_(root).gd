@@ -1,5 +1,7 @@
 extends Control
 
+const STAT_SELECTOR = preload("res://stat_selector.tscn")
+
 @onready var game_info = $Background/MarginContainer/Columns/Rows/GameInfo
 @onready var command_processor = $CommandProcessor
 @onready var room_manager = $RoomManager
@@ -7,6 +9,8 @@ extends Control
 
 
 func _ready() -> void:
+	game_info.add_stat_selector(STAT_SELECTOR)
+	
 	game_info.create_response(Types.wrap_system_text("Welcome to Havenlight! You can type 'help' to see available commands."))
 	
 	var side_panel = $Background/MarginContainer/Columns/SidePanel

@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://dp5djq0rd2158"]
+[gd_scene load_steps=8 format=3 uid="uid://dp5djq0rd2158"]
 
 [ext_resource type="Script" path="res://input/input_response.gd" id="1_5xurg"]
 [ext_resource type="FontFile" uid="uid://qoioaxtb7nx3" path="res://fonts/IBMPlexMono-Regular.ttf" id="1_lo1gw"]
@@ -10,6 +10,42 @@ expand_margin_left = 5.0
 expand_margin_right = 5.0
 expand_margin_bottom = 20.0
 
+[sub_resource type="Animation" id="Animation_tiik1"]
+resource_name = "show_text"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Rows/Response:visible_ratio")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 1.0]
+}
+
+[sub_resource type="Animation" id="Animation_no5lu"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Rows/Response:visible_ratio")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_0hvrb"]
+_data = {
+"RESET": SubResource("Animation_no5lu"),
+"show_text": SubResource("Animation_tiik1")
+}
+
 [node name="InputResponse" type="MarginContainer"]
 offset_top = 117.0
 offset_right = 432.0
@@ -19,6 +55,11 @@ script = ExtResource("1_5xurg")
 [node name="Zebra" type="Panel" parent="."]
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_2unqs")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_0hvrb")
+}
 
 [node name="Rows" type="VBoxContainer" parent="."]
 layout_mode = 2
@@ -33,3 +74,5 @@ text = " > This is what the user typed"
 
 [node name="Response" parent="Rows" instance=ExtResource("3_e75gj")]
 layout_mode = 2
+visible_characters = 0
+visible_ratio = 0.0
