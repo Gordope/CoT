@@ -13,8 +13,13 @@ func set_text(response: String, input: String = ""):
 		input_label.text = " > " + input
 	
 	response_label.text = response
-	show_text()
+	print(response_label.visible_characters)
+	print(response_label.get_total_character_count())
+	$ShowTextTimer.start(0.03)
+	
 
 
-func show_text():
-	$AnimationPlayer.play("show_text")
+func _on_show_text_timer_timeout() -> void:
+	if response_label.visible_characters < response_label.get_total_character_count():
+		response_label.visible_characters += 1
+		$ShowTextTimer.start(0.03)
