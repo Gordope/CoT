@@ -39,9 +39,9 @@ script = ExtResource("2_d0woi")
 [node name="RoomManager" type="Node" parent="."]
 script = ExtResource("3_8w3b6")
 
-[node name="HouseRoom" parent="RoomManager" instance=ExtResource("3_2tqjk")]
-room_name = "a inn"
-room_description = "a random inn"
+[node name="WastelandRoom" parent="RoomManager" instance=ExtResource("3_2tqjk")]
+room_name = "Wasteland"
+room_description = "The world around you is blurred, and the ringing in your ears is deafening. You try to push yourself up from the rubble. Everything hurts. You see a useful item under a piece of metal debris infront of you. You hear the voices of your crewmembers echo from the north."
 
 [node name="OutsideRoom" parent="RoomManager" instance=ExtResource("3_2tqjk")]
 offset_left = 480.0

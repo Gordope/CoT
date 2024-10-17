@@ -38,11 +38,11 @@ func process_command(input: String) -> String:
 			return give(second_word)
 		"help":
 			return help()
-		"1":
+		"special 1":
 			return get_option1()
-		"2":
+		"special 2":
 			return get_option2()
-		"3":
+		"special 3":
 			return get_option3()
 		_:
 			return Types.wrap_system_text("Unrecognized command - please try again")
