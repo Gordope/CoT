@@ -1,6 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://b87u77wc8q6h1"]
+[gd_scene load_steps=4 format=3 uid="uid://b87u77wc8q6h1"]
 
 [ext_resource type="Script" path="res://v_box_container.gd" id="1_24tts"]
+[ext_resource type="FontFile" uid="uid://qoioaxtb7nx3" path="res://fonts/IBMPlexMono-Regular.ttf" id="2_hs4p2"]
 
 [sub_resource type="Theme" id="Theme_dnibs"]
 
@@ -17,13 +18,19 @@ layout_mode = 2
 [node name="Remaining points" type="Label" parent="HBoxContainer"]
 layout_mode = 2
 theme = SubResource("Theme_dnibs")
+theme_override_fonts/font = ExtResource("2_hs4p2")
+theme_override_font_sizes/font_size = 28
 text = "Remaining points"
 
 [node name="Value points" type="Label" parent="HBoxContainer"]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("2_hs4p2")
+theme_override_font_sizes/font_size = 28
 
 [node name="Label str" type="Label" parent="."]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("2_hs4p2")
+theme_override_font_sizes/font_size = 24
 text = "Strength"
 
 [node name="HBoxContainer (str)" type="HBoxContainer" parent="."]
@@ -40,6 +47,8 @@ max_value = 30.0
 
 [node name="Label dex" type="Label" parent="."]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("2_hs4p2")
+theme_override_font_sizes/font_size = 24
 text = "Dexterity"
 
 [node name="HBoxContainer (dex)" type="HBoxContainer" parent="."]
@@ -56,6 +65,8 @@ max_value = 30.0
 
 [node name="Label int" type="Label" parent="."]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("2_hs4p2")
+theme_override_font_sizes/font_size = 24
 text = "Intelligence"
 
 [node name="HBoxContainer (int)" type="HBoxContainer" parent="."]
@@ -72,6 +83,8 @@ max_value = 30.0
 
 [node name="Label luck" type="Label" parent="."]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("2_hs4p2")
+theme_override_font_sizes/font_size = 24
 text = "Luck"
 
 [node name="HBoxContainer (luck)" type="HBoxContainer" parent="."]
@@ -88,6 +101,8 @@ max_value = 30.0
 
 [node name="Label char" type="Label" parent="."]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("2_hs4p2")
+theme_override_font_sizes/font_size = 24
 text = "Charisma"
 
 [node name="HBoxContainer (char)" type="HBoxContainer" parent="."]
@@ -104,6 +119,8 @@ max_value = 30.0
 
 [node name="Label wis" type="Label" parent="."]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("2_hs4p2")
+theme_override_font_sizes/font_size = 24
 text = "Wisdom"
 
 [node name="HBoxContainer (wis)" type="HBoxContainer" parent="."]
@@ -120,6 +137,8 @@ max_value = 30.0
 
 [node name="Label con" type="Label" parent="."]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("2_hs4p2")
+theme_override_font_sizes/font_size = 24
 text = "Constitution
 "
 
@@ -135,6 +154,19 @@ custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
 max_value = 30.0
 
+[node name="ErrorLabel" type="Label" parent="."]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_hs4p2")
+theme_override_font_sizes/font_size = 24
+
+[node name="DoneButton" type="Button" parent="."]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_fonts/font = ExtResource("2_hs4p2")
+theme_override_font_sizes/font_size = 24
+text = "Done"
+
 [connection signal="value_changed" from="HBoxContainer (str)/Value str" to="." method="_on_value_str_value_changed"]
 [connection signal="value_changed" from="HBoxContainer (str)/HSlider str" to="." method="_on_h_slider_str_value_changed"]
 [connection signal="value_changed" from="HBoxContainer (dex)/Value dex" to="." method="_on_value_dex_value_changed"]
@@ -149,3 +181,4 @@ max_value = 30.0
 [connection signal="value_changed" from="HBoxContainer (wis)/HSlider wis" to="." method="_on_h_slider_wis_value_changed"]
 [connection signal="value_changed" from="HBoxContainer (con)/Value con" to="." method="_on_value_con_value_changed"]
 [connection signal="value_changed" from="HBoxContainer (con)/HSlider con" to="." method="_on_h_slider_con_value_changed"]
+[connection signal="pressed" from="DoneButton" to="." method="_on_done_button_pressed"]
