@@ -38,6 +38,12 @@ func process_command(input: String) -> String:
 			return give(second_word)
 		"help":
 			return help()
+		"1":
+			return get_option1()
+		"2":
+			return get_option2()
+		"3":
+			return get_option3()
 		_:
 			return Types.wrap_system_text("Unrecognized command - please try again")
 
@@ -49,7 +55,7 @@ func go(second_word: String) -> String:
 	if current_room.exits.keys().has(second_word):
 		var exit = current_room.exits[second_word]
 		if exit.is_locked:
-			return Types.wrap_location_text(second_word) + " is currently " + Types.wrap_system_text("location!")
+			return Types.wrap_location_text(second_word) + " is currently " + Types.wrap_system_text("locked!")
 			
 		var change_response = change_room(exit.get_other_room(current_room))
 		return "\n".join(PackedStringArray(["You go " + Types.wrap_location_text(second_word) + '.', change_response]))	
@@ -162,11 +168,23 @@ func help() -> String:
 		" help"
 	]))
 
+func get_option1():
+	return current_room.option1()
+
+
+func get_option2():
+	return current_room.option2()
+	
+
+func get_option3():
+	return current_room.option3()
+	
+
 
 func change_room(new_room: GameArea) -> String:
 	current_room = new_room
 	emit_signal("room_changed", new_room)
-	return new_room.get_full_description()
+	return new_room.get_room_description()
 	
 
 

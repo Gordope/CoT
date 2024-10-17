@@ -5,6 +5,10 @@ class_name GameArea
 @export var room_name = "Room Name":set = set_room_name
 @export_multiline var room_description = "This is the description of the room":set = set_room_description
 
+@export_multiline var option1 = ""
+@export_multiline var option2 = ""
+@export_multiline var option3 = ""
+
 var exits: Dictionary = {}
 var npcs = []
 var items = []
@@ -31,7 +35,9 @@ func add_npc(npc: NPC):
 
 
 func get_full_description() -> String:
-	var full_description = PackedStringArray([get_room_description()])
+	var full_description = PackedStringArray([get_room_name()])
+	
+	full_description.append(get_room_description())
 	
 	var npc_description = get_npc_description()
 	if npc_description != "":
@@ -45,10 +51,15 @@ func get_full_description() -> String:
 	
 	var full_description_string = "\n".join(full_description)
 	return full_description_string
-	
-	
+
+
+func get_room_name() -> String:
+	return "You are now in: " + Types.wrap_location_text(room_name)
+
+
+
 func get_room_description() -> String:
-	return "You are now in: " + Types.wrap_location_text(room_name) + ". It is " + room_description
+	return room_description
 
 func get_npc_description() -> String:
 	if npcs.size() == 0:
@@ -109,3 +120,15 @@ func _connect_exit(direction: String, room, is_locked: bool = false, room_2_over
 			_:
 				printerr("Tried to connect invalid direction %s", direction)
 	return exit
+
+
+func option1():
+	pass
+
+
+func option2():
+	pass
+
+
+func option3():
+	pass

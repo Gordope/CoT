@@ -25,6 +25,7 @@ func started_journey():
 
 func stats_selected(all_stats: Array):
 	self.all_stats = all_stats
+	Stats.get_stats(all_stats)
 	
 	game_info.history_rows.get_child(0).queue_free()
 	game_info.history_rows.get_child(1).queue_free()
@@ -49,18 +50,16 @@ func _on_input_text_submitted(new_text: String) -> void:
 	
 func create_intro_story():
 	var intro_story = "The world had been dying long before the ember core erupted. 
-Cities once glistened beneath skies of steel and glass, thier towers reaching
+
+Cities once glistened beneath skies of steel and glass, their towers reaching
 for a future promised but never delivered. Humanity, ever hungry, ever blind, dug deeper,
-demanded more. And beneath the surface, beneath the earth's skin, someting dark was stirring. 
-The Ember Core was supposed to be the answer. A limitless power source. 
+demanded more. And beneath the surface, beneath the earth's skin, someting dark was stirring. The Ember Core was supposed to be the answer. A limitless power source. 
 	
-HUmanity's salvation.
+Humanity's salvation.
 	
 But salvation turned to ash.
 	
-You remember the day the sky bled fire. The day the world split open, when the ground roared
-beneath your feet, and a wave of burning light engulfed everything. You were a child then - too young
-to understand the scale of the disaster, too innocent to graps the finality of it. They called it the
+You remember the day the sky bled fire. The day the world split open, when the ground roared beneath your feet, and a wave of burning light engulfed everything. You were a child then - too young to understand the scale of the disaster, too innocent to graps the finality of it. They called it the
 	
 GREAT EMBER
 	
@@ -71,12 +70,11 @@ some survived
 	
 YOU survived
 	
-It's been twenty years since the Ember Core detonated, tearing out the heart of the planet. You've
-grown up in the Ashen Expanse, a wasteland of scorched earth and shattered ruins, where life clings like moss
-to a dying tee. The cities of old are nothing byt hollow skeletons now, their bones blackened by the flames that
+It's been twenty years since the Ember Core detonated, tearing out the heart of the planet. 
+
+You've grown up in the Ashen Expanse, a wasteland of scorched earth and shattered ruins, where life clings like moss to a dying tree. The cities of old are nothing but hollow skeletons now, their bones blackened by the flames that
 consumed them. Survivors roam the waste scavenging for scraps, fighting for drops of water and gasps of clean air.
-You've spent you life among them, hiding from the dangers of the surface - radiation, mutated creatures, and the machines
-that hunt the living
+You've spent you life among them, hiding from the dangers of the surface - radiation, mutated creatures, and the machines that hunt the living
 	
 But lately, whispers have spread through the ruins, a promise of salvation, rumors carried on the wind like the scent of smoke.
 	
