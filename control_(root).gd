@@ -1,12 +1,13 @@
 extends Control
 
 const STAT_SELECTOR = preload("res://stat_selector.tscn")
+const START_BUTTON = preload("res://start_journey_button.tscn")
+
 
 @onready var game_info = $Background/MarginContainer/Columns/Rows/GameInfo
 @onready var command_processor = $CommandProcessor
 @onready var room_manager = $RoomManager
 @onready var player = $Player
-
 
 func _ready() -> void:
 	var intro_story = create_intro_story()
