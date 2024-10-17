@@ -21,7 +21,7 @@ func set_text(response: String, input: String = ""):
 	
 	await text_revealed
 	
-	return true
+	return
 	
 
 func _on_show_text_timer_timeout() -> void:

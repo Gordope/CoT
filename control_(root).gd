@@ -10,15 +10,19 @@ const START_BUTTON = preload("res://start_journey_button.tscn")
 @onready var player = $Player
 
 func _ready() -> void:
+	game_info.button_pressed_signal.connect(started_journey)
 	var intro_story = create_intro_story()
-	if await game_info.create_response(intro_story) == true:
-		game_info.add_scene(START_BUTTON)
+	await game_info.create_response(intro_story)
+	game_info.add_scene(START_BUTTON)
 	
 
-func temp():
+func started_journey():
+	await game_info.create_response("Before you set forth on your journey, it's time to customize your character. Your choices will shape your destiny in this world!")
 	game_info.add_scene(STAT_SELECTOR)
 
 	
+
+func temp():
 	game_info.create_response(Types.wrap_system_text("Welcome to Havenlight! You can type 'help' to see available commands."))
 	
 	var side_panel = $Background/MarginContainer/Columns/SidePanel
@@ -27,6 +31,7 @@ func temp():
 	
 	var starting_room_response = command_processor.initialize(room_manager.get_child(0), player)
 	game_info.create_response(starting_room_response)
+
 
 func _on_input_text_submitted(new_text: String) -> void:
 	if new_text.is_empty():

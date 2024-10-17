@@ -12,6 +12,8 @@ var should_zebra := false
 @onready var history_rows = $Scroll/HistoryRows
 @onready var auto_scroll := false
 
+signal button_pressed_signal
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	scrollbar.changed.connect(handle_scrollbar_changed)
@@ -21,7 +23,7 @@ func create_response(response_text: String):
 	var response = INPUT_RESPONSE.instantiate()
 	_add_response_to_game(response)
 	await response.set_text(response_text)
-	return true
+	return
 	
 
 func create_response_with_input(response_text: String, input_text: String):
@@ -35,9 +37,11 @@ func add_scene(SCENE):
 	history_rows.add_child(scene)
 
 
-func delete_start_message():
+func start_journey_pressed():
 	history_rows.get_child(0).queue_free()
 	history_rows.get_child(1).queue_free()
+	auto_scroll = true
+	emit_signal("button_pressed_signal")
 
 
 #### PRIVATE ####

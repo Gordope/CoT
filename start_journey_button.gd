@@ -4,4 +4,4 @@ extends Button
 
 
 func _on_pressed() -> void:
-	game_info.delete_start_message()
+	game_info.start_journey_pressed()
