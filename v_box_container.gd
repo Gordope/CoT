@@ -205,4 +205,5 @@ func _on_done_button_pressed() -> void:
 		done_button.text = "Yes"
 	else:
 		var all_stats = [str, dex, intel, luck, char, wis, con]
-		get_tree().root.stats_selected(all_stats)
+		get_tree().current_scene.stats_selected(all_stats)
+		
