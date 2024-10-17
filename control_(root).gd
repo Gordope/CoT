@@ -8,7 +8,6 @@ const START_BUTTON = preload("res://start_journey_button.tscn")
 @onready var command_processor = $CommandProcessor
 @onready var room_manager = $RoomManager
 @onready var player = $Player
-@onready var all_stats := []
 
 func _ready() -> void:
 	game_info.button_pressed_signal.connect(started_journey)
@@ -24,7 +23,6 @@ func started_journey():
 	
 
 func stats_selected(all_stats: Array):
-	self.all_stats = all_stats
 	Stats.get_stats(all_stats)
 	
 	game_info.history_rows.get_child(0).queue_free()

@@ -5,9 +5,22 @@ class_name GameArea
 @export var room_name = "Room Name":set = set_room_name
 @export_multiline var room_description = "This is the description of the room":set = set_room_description
 
-@export_multiline var option1 = ""
-@export_multiline var option2 = ""
-@export_multiline var option3 = ""
+var option1_name = ""
+var option1_result_p = ""
+var option1_result_n = ""
+var option1_req_stat = ""
+
+var option2_name = ""
+var option2_result_p = ""
+var option2_result_n = ""
+var option2_req_stat = ""
+
+
+var option3_name = ""
+var option3_result_p = ""
+var option3_result_n = ""
+var option3_req_stat = ""
+
 
 var exits: Dictionary = {}
 var npcs = []
@@ -121,14 +134,48 @@ func _connect_exit(direction: String, room, is_locked: bool = false, room_2_over
 				printerr("Tried to connect invalid direction %s", direction)
 	return exit
 
+func create_option1(option_label, positive_result, negative_result, required_stat):
+	option1_name = option_label
+	option1_result_p = positive_result
+	option1_result_n = negative_result
+	option1_req_stat = required_stat
 
-func option1():
-	pass
+func create_option2(option_label, positive_result, negative_result, required_stat):
+	option2_name = option_label
+	option2_result_p = positive_result
+	option2_result_n = negative_result
+	option2_req_stat = required_stat
 
+func create_option3(option_label, positive_result, negative_result, required_stat):
+	option3_name = option_label
+	option3_result_p = positive_result
+	option3_result_n = negative_result
+	option3_req_stat = required_stat
+
+func option1(number):
+	var stat_value = option1_req_stat.split(",", false)
+	var stat = stat_value[0]
+	var value = int(stat_value[1])
+	if Stats.stat >= value:
+		return option1_result_p
+	else:
+		return option1_result_n
 
 func option2():
-	pass
+	var stat_value = option2_req_stat.split(",", false)
+	var stat = stat_value[0]
+	var value = int(stat_value[1])
+	if Stats.stat >= value:
+		return option2_result_p
+	else:
+		return option2_result_n 
 
 
 func option3():
-	pass
+	var stat_value = option3_req_stat.split(",", false)
+	var stat = stat_value[0]
+	var value = int(stat_value[1])
+	if Stats.stat >= value:
+		return option3_result_p
+	else:
+		return option3_result_n 
