@@ -11,14 +11,7 @@ const STAT_SELECTOR = preload("res://stat_selector.tscn")
 func _ready() -> void:
 	var intro_story = create_intro_story()
 	game_info.create_response(intro_story)
-	game_info.create_response(Types.wrap_system_text("Welcome to Havenlight! You can type 'help' to see available commands."))
 	
-	var side_panel = $Background/MarginContainer/Columns/SidePanel
-	command_processor.room_changed.connect(Callable(side_panel, "handle_room_changed"))
-	command_processor.room_updated.connect(Callable(side_panel, "handle_room_changed"))
-	
-	var starting_room_response = command_processor.initialize(room_manager.get_child(0), player)
-	game_info.create_response(starting_room_response)
 	#game_info.add_scene(START_BUTTON)
 	
 
