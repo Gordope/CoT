@@ -11,9 +11,8 @@ const START_BUTTON = preload("res://start_journey_button.tscn")
 
 func _ready() -> void:
 	var intro_story = create_intro_story()
-	game_info.create_response(intro_story)
-	
-	#game_info.add_scene(START_BUTTON)
+	if await game_info.create_response(intro_story) == true:
+		game_info.add_scene(START_BUTTON)
 	
 
 func temp():

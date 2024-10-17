@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://cyf80k0vo6l4u"]
+[gd_scene load_steps=3 format=3 uid="uid://cyf80k0vo6l4u"]
 
 [ext_resource type="FontFile" uid="uid://bdu2732y362hq" path="res://fonts/IBMPlexMono-SemiBold.ttf" id="1_cgoi6"]
+[ext_resource type="Script" path="res://start_journey_button.gd" id="2_p7wmo"]
 
 [node name="StartJourneyButton" type="Button"]
 offset_right = 8.0
@@ -8,3 +9,6 @@ offset_bottom = 8.0
 theme_override_fonts/font = ExtResource("1_cgoi6")
 theme_override_font_sizes/font_size = 28
 text = "Start Journey"
+script = ExtResource("2_p7wmo")
+
+[connection signal="pressed" from="." to="." method="_on_pressed"]

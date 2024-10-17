@@ -10,6 +10,8 @@ var should_zebra := false
 @onready var scroll = $Scroll
 @onready var scrollbar = scroll.get_v_scroll_bar()
 @onready var history_rows = $Scroll/HistoryRows
+@onready var auto_scroll := false
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	scrollbar.changed.connect(handle_scrollbar_changed)
@@ -18,7 +20,8 @@ func _ready() -> void:
 func create_response(response_text: String):
 	var response = INPUT_RESPONSE.instantiate()
 	_add_response_to_game(response)
-	response.set_text(response_text)
+	await response.set_text(response_text)
+	return true
 	
 
 func create_response_with_input(response_text: String, input_text: String):
@@ -39,7 +42,8 @@ func delete_start_message():
 
 #### PRIVATE ####
 func handle_scrollbar_changed():
-	scroll.scroll_vertical = scrollbar.max_value
+	if auto_scroll == true:
+		scroll.scroll_vertical = scrollbar.max_value
 
 
 func _add_response_to_game(response: Control):
