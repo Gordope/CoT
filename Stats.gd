@@ -19,11 +19,16 @@ var all_stats := {
 }
 
 func get_stats(stats: Array):
-	str = stats[0]
-	dex = stats[1]
-	intel = stats[2]
-	luck = stats[3]
-	char = stats[4]
-	wis = stats[5]
-	con = stats[6] 
+	all_stats[str] = stats[0]
+	all_stats[dex] = stats[1]
+	all_stats[intel] = stats[2]
+	all_stats[luck] = stats[3]
+	all_stats[char] = stats[4]
+	all_stats[wis] = stats[5]
+	all_stats[con] = stats[6] 
 		
+func return_stat(stat):
+	if all_stats.has[stat]:
+		return all_stats[stat]
+	else:
+		return "Key not found"
