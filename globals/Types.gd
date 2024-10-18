@@ -4,6 +4,8 @@ extends Node
 enum ItemTypes {
 	KEY = 0,
 	QUEST_ITEM,
+	CROWBAR = 1,
+	SIGNAL_JAMMER = 2,
 }
 
 

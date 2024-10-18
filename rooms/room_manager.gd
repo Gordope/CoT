@@ -9,7 +9,7 @@ func _ready() -> void:
 	$WastelandRoom.create_option1("[Check your surroundings.]", positive_result, negative_result, "int,10")
 	
 	positive_result = "You manage to shove aside a large piece of metal debris, uncovering a makeshift weapon—a broken crowbar."
-	negative_result = ""
+	negative_result = "Despite your best efforts, the wreckage is too heavy, and you’re unable to find anything useful as a weapon. If you’re in trouble, you’ll have to rely on something else."
 	$WastelandRoom.create_option2("[Try to move debris.]", positive_result, negative_result, "str,15")
 	
 	

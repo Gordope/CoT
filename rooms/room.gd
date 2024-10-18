@@ -134,48 +134,54 @@ func _connect_exit(direction: String, room, is_locked: bool = false, room_2_over
 				printerr("Tried to connect invalid direction %s", direction)
 	return exit
 
-func create_option1(option_label, positive_result, negative_result, required_stat):
+func create_option1(option_label, positive_result, negative_result, stat_difficulty):
 	option1_name = option_label
 	option1_result_p = positive_result
 	option1_result_n = negative_result
-	option1_req_stat = required_stat
+	option1_req_stat = stat_difficulty
 
-func create_option2(option_label, positive_result, negative_result, required_stat):
+func create_option2(option_label, positive_result, negative_result, stat_difficulty):
 	option2_name = option_label
 	option2_result_p = positive_result
 	option2_result_n = negative_result
-	option2_req_stat = required_stat
+	option2_req_stat = stat_difficulty
 
-func create_option3(option_label, positive_result, negative_result, required_stat):
+func create_option3(option_label, positive_result, negative_result, stat_difficulty):
 	option3_name = option_label
 	option3_result_p = positive_result
 	option3_result_n = negative_result
-	option3_req_stat = required_stat
+	option3_req_stat = stat_difficulty
 
-func option1(number):
+func option1():
+	var roll = randf() * 100
 	var stat_value = option1_req_stat.split(",", false)
 	var stat = stat_value[0]
-	var value = int(stat_value[1])
-	if Stats.stat >= value:
+	var difficulty = int(stat_value[1])
+	var success_chance = Stats.stat * 100 / difficulty
+	if roll < success_chance:
 		return option1_result_p
 	else:
 		return option1_result_n
 
 func option2():
+	var roll = randf() * 100
 	var stat_value = option2_req_stat.split(",", false)
 	var stat = stat_value[0]
-	var value = int(stat_value[1])
-	if Stats.stat >= value:
+	var difficulty = int(stat_value[1])
+	var success_chance = Stats.stat * 100 / difficulty
+	if roll < success_chance:
 		return option2_result_p
 	else:
 		return option2_result_n 
 
 
 func option3():
+	var roll = randf() * 100
 	var stat_value = option3_req_stat.split(",", false)
 	var stat = stat_value[0]
-	var value = int(stat_value[1])
-	if Stats.stat >= value:
+	var difficulty = int(stat_value[1])
+	var success_chance = Stats.stat * 100 / difficulty
+	if roll < success_chance:
 		return option3_result_p
 	else:
 		return option3_result_n 
