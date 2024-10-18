@@ -4,7 +4,7 @@ extends Node
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	var positive_result = "On the left you spot a faint shimmer in the wreckage—a broken piece of tech that might still be usable. On the right you spot one of your fellow mates, Reeve."
-	var negative_result = "You sift through the wreckage, but everything looks the same—just broken metal and scraps. If there’s anything useful here, it’s hidden too well for you to find."
+	var negative_result = "You look around, but everything looks the same—just broken metal and scraps. If there’s anything useful here, it’s hidden too well for you to find."
 	$WastelandRoom.create_option1("[Check your surroundings.]", positive_result, negative_result, "intel,10")
 	
 	positive_result = "You manage to shove aside a large piece of metal debris, uncovering a makeshift weapon—a broken crowbar."
