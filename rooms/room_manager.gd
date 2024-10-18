@@ -3,7 +3,6 @@ extends Node
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	$WastelandRoom.connect_exit_unlocked("east", $OutsideRoom)
 	var positive_result = "On the left you spot a faint shimmer in the wreckage—a broken piece of tech that might still be usable. On the right you spot one of your fellow mates, Reeve."
 	var negative_result = "You sift through the wreckage, but everything looks the same—just broken metal and scraps. If there’s anything useful here, it’s hidden too well for you to find."
 	$WastelandRoom.create_option1("[Check your surroundings.]", positive_result, negative_result, "int,10")
@@ -12,11 +11,20 @@ func _ready() -> void:
 	negative_result = "Despite your best efforts, the wreckage is too heavy, and you’re unable to find anything useful as a weapon. If you’re in trouble, you’ll have to rely on something else."
 	$WastelandRoom.create_option2("[Try to move debris.]", positive_result, negative_result, "str,15")
 	
+	var crowbar = load_item("Crowbar")
+	$WastelandRoom.add_item(crowbar)
 	
-	$WastelandRoom.add_item("")
+	var signal_jammer = load_item("SignalJammer")
+	$WastelandRoom.add_item(signal_jammer)
 	
+	$WastelandRoom.connect_exit_unlocked("north", $DestroyedConvoyRoom)
 	
+	var reeve = load_npc("Reeve")
+	$WastelandRoom.add_npc(reeve)
 	
+
+
+func temp():
 	var key = load_item("Key")
 	var exit = $OutsideRoom.connect_exit_locked("north", $ShedRoom)
 	key.use_value = exit

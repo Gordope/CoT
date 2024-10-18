@@ -38,11 +38,11 @@ func process_command(input: String) -> String:
 			return give(second_word)
 		"help":
 			return help()
-		"special 1":
+		"special1":
 			return get_option1()
-		"special 2":
+		"special2":
 			return get_option2()
-		"special 3":
+		"special3":
 			return get_option3()
 		_:
 			return Types.wrap_system_text("Unrecognized command - please try again")
@@ -107,6 +107,10 @@ func use(second_word: String) -> String:
 							player.drop_item(item)
 							return "You use a " + Types.wrap_item_text(second_word) + " to unlock " + Types.wrap_location_text(exit.get_other_room(current_room).room_name) + "."
 					return "Your " + Types.wrap_item_text(second_word) + " does not unlock anything here."
+				Types.ItemTypes.CROWBAR:
+					return ""
+				Types.ItemTypes.SIGNAL_JAMMER:
+					return ""
 				_:
 					return Types.wrap_system_text("Error - tried to use an item with an invalid type.")
 
@@ -165,6 +169,7 @@ func help() -> String:
 		" talk " + Types.wrap_npc_text("[npc]"),
 		" give " + Types.wrap_item_text("[item]"),
 		" inventory",
+		" special[number]",
 		" help"
 	]))
 
@@ -184,7 +189,7 @@ func get_option3():
 func change_room(new_room: GameArea) -> String:
 	current_room = new_room
 	emit_signal("room_changed", new_room)
-	return new_room.get_room_description()
+	return new_room.get_room_description() + "\n" + new_room.get_special_description()
 	
 
 

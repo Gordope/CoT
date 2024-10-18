@@ -8,6 +8,16 @@ var char = 0
 var wis = 0
 var con = 0
 
+var all_stats := {
+	str = 0,
+	dex = 0,
+	intel = 0,
+	luck = 0,
+	char = 0,
+	wis = 0,
+	con =0 
+}
+
 func get_stats(stats: Array):
 	str = stats[0]
 	dex = stats[1]

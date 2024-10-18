@@ -5,4 +5,4 @@
 [resource]
 script = ExtResource("1_1856a")
 item_name = "Crowbar"
-item_type = 0
+item_type = 1

@@ -4,6 +4,6 @@
 
 [resource]
 script = ExtResource("1_1bhgn")
-npc_name = "NPC Name"
-initial_dialog = ""
+npc_name = "Reeve"
+initial_dialog = "..."
 post_quest_dialog = ""
