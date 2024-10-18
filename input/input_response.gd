@@ -27,7 +27,7 @@ func set_text(response: String, input: String = ""):
 func _on_show_text_timer_timeout() -> void:
 	if response_label.visible_characters < response_label.get_total_character_count():
 		response_label.visible_characters += 1
-		$ShowTextTimer.start(0.03)
+		$ShowTextTimer.start(0.00001)
 	else:
 		$ShowTextTimer.stop()  # Stop the timer when text is fully revealed
 		emit_signal("text_revealed")  # Emit the signal that the text is fully revealed

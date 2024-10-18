@@ -4,5 +4,5 @@
 
 [resource]
 script = ExtResource("1_gcnu4")
-item_name = "Item Name"
-item_type = 0
+item_name = "SignalJammer"
+item_type = 2

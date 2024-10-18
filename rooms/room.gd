@@ -93,13 +93,13 @@ func get_item_description() -> String:
 	return "Items: " + item_string
 
 func get_special_description() -> String:
-	var option_string = []
+	var option_string = ""
 	if option1_name != "":
-		option_string = " 1. " + option1_name + "\n" + " 2. " +option2_name + "\n" + " 3. " +option3_name
+		option_string += " 1. " + option1_name + "\n"
 	if option2_name != "":
-		option_string = " 2. " +option2_name + "\n"
+		option_string += " 2. " +option2_name + "\n"
 	if option3_name != "":
-		option_string = " 3. " +option3_name
+		option_string += " 3. " +option3_name
 	return option_string
 
 func get_exit_description() -> String:
@@ -177,7 +177,7 @@ func option2():
 	var stat_value = option2_req_stat.split(",", false)
 	var stat = stat_value[0]
 	var difficulty = int(stat_value[1])
-	var success_chance = Stats.get(stat) * 100 / difficulty
+	var success_chance = Stats.return_stat(stat) * 100 / difficulty
 	if roll < success_chance:
 		return option2_result_p
 	else:
@@ -189,7 +189,7 @@ func option3():
 	var stat_value = option3_req_stat.split(",", false)
 	var stat = stat_value[0]
 	var difficulty = int(stat_value[1])
-	var success_chance = Stats.get(stat) * 100 / difficulty
+	var success_chance = Stats.return_stat(stat) * 100 / difficulty
 	if roll < success_chance:
 		return option3_result_p
 	else:
