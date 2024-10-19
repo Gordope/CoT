@@ -17,7 +17,7 @@ func _ready() -> void:
 	var signal_jammer = load_item("SignalJammer")
 	$WastelandRoom.add_item(signal_jammer)
 	
-	$WastelandRoom.connect_exit_unlocked("north", $DestroyedConvoyRoom)
+	$WastelandRoom.connect_exit_unlocked("north", $Wasteland2Room)
 	
 	var reeve = load_npc("Reeve")
 	$WastelandRoom.add_npc(reeve)

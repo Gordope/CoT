@@ -43,12 +43,12 @@ script = ExtResource("3_8w3b6")
 room_name = "Wasteland"
 room_description = "The world around you is blurred, and the ringing in your ears is deafening. You try to push yourself up from the rubble. Everything hurts. You see a useful item under a piece of metal debris infront of you. You hear the voices of your crewmembers echo from the north."
 
-[node name="DestroyedConvoyRoom" parent="RoomManager" instance=ExtResource("3_2tqjk")]
+[node name="Wasteland2Room" parent="RoomManager" instance=ExtResource("3_2tqjk")]
 offset_left = 480.0
 offset_top = -395.0
 offset_right = 744.0
 offset_bottom = -295.0
-room_name = "Destroyed Convoy"
+room_name = "Wasteland2Room"
 room_description = "..."
 
 [node name="ShedRoom" parent="RoomManager" instance=ExtResource("3_2tqjk")]

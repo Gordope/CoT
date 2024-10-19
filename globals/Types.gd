@@ -14,6 +14,7 @@ const COLOR_ITEM = Color("#94b9ff")
 const COLOR_SPEECH = Color("#c3ff94")
 const COLOR_LOCATION = Color("#faff94")
 const COLOR_SYSTEM = Color("#ffd394")
+const COLOR_SPECIAL = Color("#b4bdd9")
 
 func wrap_system_text(text: String) -> String:
 	return "[color=#%s]%s[/color]" % [COLOR_SYSTEM.to_html(), text]
@@ -29,3 +30,6 @@ func wrap_location_text(text: String) -> String:
 
 func wrap_item_text(text: String) -> String:
 	return "[color=#%s]%s[/color]" % [COLOR_ITEM.to_html(), text]
+
+func wrap_special_text(text: String) -> String:
+	return "[color=#%s]%s[/color]" % [COLOR_SPECIAL.to_html(), text]

@@ -95,11 +95,11 @@ func get_item_description() -> String:
 func get_special_description() -> String:
 	var option_string = ""
 	if option1_name != "":
-		option_string += " 1. " + option1_name + "\n"
+		option_string += Types.wrap_special_text("\n" + " 1. " + option1_name + "\n")
 	if option2_name != "":
-		option_string += " 2. " +option2_name + "\n"
+		option_string += Types.wrap_special_text(" 2. " +option2_name + "\n")
 	if option3_name != "":
-		option_string += " 3. " +option3_name
+		option_string += Types.wrap_special_text(" 3. " +option3_name)
 	return option_string
 
 func get_exit_description() -> String:
